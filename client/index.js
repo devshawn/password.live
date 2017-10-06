@@ -1,13 +1,20 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import { AppContainer } from "react-hot-loader"
 
 import Application from "./application/application"
+import configureStore from "./application/store"
+
+import { AppContainer } from "react-hot-loader"
+import { Provider } from "react-redux"
+
+const store = configureStore()
 
 const render = Component => {
     ReactDOM.render(
         <AppContainer>
-            <Component/>
+            <Provider store={store}>
+                <Component/>
+            </Provider>
         </AppContainer>,
         document.getElementById("root")
     )
@@ -15,4 +22,6 @@ const render = Component => {
 
 render(Application)
 
-if (module.hot) module.hot.accept("./application/application", () => render(Application))
+if (module.hot) {
+    module.hot.accept("./application/application", () => render(Application))
+}

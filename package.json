@@ -6,13 +6,14 @@
   "author": "Shawn Seymour <shawn@devshawn.com>",
   "license": "MIT",
   "scripts": {
-    "serve": "nodemon server/server.js --exec babel-node",
+    "serve": "nodemon server/server.js --exec babel-node --ignore 'client/*'",
     "clean": "rimraf dist/",
     "build": "babel server/ -d dist",
     "start": "yarn run clean && yarn run build && node dist/server.js"
   },
   "dependencies": {
     "express": "^4.16.1",
+    "password-generator": "^2.2.0",
     "path": "^0.12.7"
   },
   "devDependencies": {
