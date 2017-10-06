@@ -1,0 +1,26 @@
+{
+  "name": "password-generator",
+  "version": "1.0.0",
+  "description": "A simple password generator application.",
+  "main": "application/server.js",
+  "author": "Shawn Seymour <shawn@devshawn.com>",
+  "license": "MIT",
+  "scripts": {
+    "serve": "nodemon server/server.js --exec babel-node",
+    "clean": "rimraf dist/",
+    "build": "babel server/ -d dist",
+    "start": "yarn run clean && yarn run build && node dist/server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "nodemon": "^1.12.1",
+    "rimraf": "^2.6.2"
+  }
+}
