@@ -6,10 +6,12 @@ const initialState = {
 
 export function passwordReducer(state = initialState, action) {
     const updatedState = Object.assign({}, state)
+
     switch (action.type) {
         case INITIAL_PASSWORD_SUCCESS:
             updatedState.initialPassword = action.payload.password
             return updatedState
+
         default:
             return updatedState
     }

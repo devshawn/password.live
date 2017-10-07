@@ -1,10 +1,10 @@
 {
   "name": "password-generator-client",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "client.js",
   "license": "MIT",
   "scripts": {
-    "serve": "webpack-dev-server --hot --history-api-fallback --open"
+    "serve": "webpack-dev-server --hot --history-api-fallback"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -22,17 +22,21 @@
   },
   "dependencies": {
     "babel-preset-latest": "^6.24.1",
+    "copy-to-clipboard": "^3.0.8",
     "font-awesome": "^4.7.0",
     "history": "^4.7.2",
+    "immutable": "^3.8.2",
     "material-ui": "^0.19.3",
     "ptsans-npm-webfont": "^0.0.4",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-hot-loader": "next",
+    "react-notification": "^6.8.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "uuid": "^3.1.0"
   },
   "resolutions": {
     "react": "16.0.0",

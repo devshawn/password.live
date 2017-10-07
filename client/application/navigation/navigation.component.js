@@ -1,7 +1,8 @@
 import React from "react"
 import AppBar from "material-ui/AppBar"
+import FontIcon from "material-ui/FontIcon"
 import { Tab, Tabs } from "material-ui/Tabs"
-import { appBarStyle, tabItemContainerStyle, tabItemStyle } from "./navigation.styles"
+import { appBarStyle, iconStyle, inkBarStyle, tabItemContainerStyle, tabItemStyle } from "./navigation.styles"
 
 const items = [
     { label: "Simple", value: "/" },
@@ -27,8 +28,8 @@ export class NavigationComponent extends React.Component {
         const { value } = this.state
 
         return (
-            <AppBar title="Password Generator" showMenuIconButton={ false } style={ appBarStyle }>
-                <Tabs value={ value } onChange={ this.handleNavigation } tabItemContainerStyle={ tabItemContainerStyles }>
+            <AppBar title="Password Generator" style={ appBarStyle } iconElementLeft={ <FontIcon style={ iconStyle } className="fa fa-user-secret"/> }>
+                <Tabs value={ value } onChange={ this.handleNavigation } tabItemContainerStyle={ tabItemContainerStyles } inkBarStyle={ inkBarStyle }>
                     {
                         items.map((item) => <Tab key={ item.value } label={ item.label } value={ item.value } style={ tabItemStyle }/>)
                     }

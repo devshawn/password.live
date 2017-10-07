@@ -1,32 +1,22 @@
+@import "~font-awesome/css/font-awesome.css";
+
 body {
     background: #FAFAFA;
     margin: 0;
     font-size: 14px;
-}
-
-* {
     font-family: 'PT Sans', sans-serif !important;
-
 }
 
 .center-text {
     text-align: center;
 }
 
-.color-white {
-    color: white;
-}
-
 .container {
     width: 100%;
-    height: calc(90vh - 64px);
+    height: calc(80vh - 64px);
     display: flex;
 }
 
 .center-vertically {
     margin: auto;
-}
-
-.remove-bottom-padding {
-    padding-bottom: 0 !important;
 }
