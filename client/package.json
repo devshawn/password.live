@@ -22,13 +22,20 @@
   },
   "dependencies": {
     "babel-preset-latest": "^6.24.1",
-    "element-react": "^1.2.6",
-    "element-theme-default": "^1.4.6",
+    "font-awesome": "^4.7.0",
+    "history": "^4.7.2",
+    "material-ui": "^0.19.3",
+    "ptsans-npm-webfont": "^0.0.4",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-hot-loader": "next",
     "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"
+  },
+  "resolutions": {
+    "react": "16.0.0",
+    "react-dom": "16.0.0"
   }
 }

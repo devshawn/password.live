@@ -1,8 +1,12 @@
-
 body {
-    background: #1D8CE0;
-    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    background: #FAFAFA;
     margin: 0;
+    font-size: 14px;
+}
+
+* {
+    font-family: 'PT Sans', sans-serif !important;
+
 }
 
 .center-text {
@@ -14,14 +18,15 @@ body {
 }
 
 .container {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 90vh;
+    width: 100%;
+    height: calc(90vh - 64px);
     display: flex;
 }
 
 .center-vertically {
     margin: auto;
+}
+
+.remove-bottom-padding {
+    padding-bottom: 0 !important;
 }

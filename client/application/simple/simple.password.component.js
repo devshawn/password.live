@@ -1,16 +1,16 @@
 import React from "react"
 import { getInitialPassword } from "../password/password.actions"
 import { connect } from "react-redux"
-import { Button, Card } from "element-react"
-import "./home.css"
+import { Card, CardText } from "material-ui/Card"
+import RaisedButton from "material-ui/RaisedButton"
+import { cardContainerStyle } from "../styles"
 
 @connect((store) => {
     return {
         reducerState: store.passwordReducer
     }
 })
-
-export class HomePasswordComponent extends React.Component {
+export class SimplePasswordComponent extends React.Component {
     constructor(props) {
         super(props)
         this.generatePassword = this.generatePassword.bind(this)
@@ -27,11 +27,13 @@ export class HomePasswordComponent extends React.Component {
     render() {
         return (
             <div className="center-text">
-                <Card className="password-card">
-                    {this.props.reducerState.initialPassword}
+                <Card containerStyle={ cardContainerStyle }>
+                    <CardText>
+                        { this.props.reducerState.initialPassword }
+                    </CardText>
                 </Card>
 
-                <Button type="success" onClick={this.generatePassword}>Generate Password</Button>
+                <RaisedButton onClick={ this.generatePassword }>Generate Password</RaisedButton>
             </div>
         )
     }
