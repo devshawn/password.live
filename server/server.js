@@ -1,4 +1,12 @@
 import "babel-polyfill"
-import { Application } from "./config/application"
+import { app, Application } from "./config/application"
+import { Logger } from "./utilities/logger"
 
-new Application()
+const initialize = async () => {
+    const port = process.env.PORT || 4321
+    new Application()
+    await app.listen(port)
+    Logger.info(`Server started on: ${port}`)
+}
+
+initialize()

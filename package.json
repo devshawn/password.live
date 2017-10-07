@@ -8,8 +8,9 @@
   "scripts": {
     "serve": "nodemon server/server.js --exec babel-node --ignore 'client/*'",
     "clean": "rimraf dist/",
-    "build": "babel server/ -d dist",
-    "start": "yarn run clean && yarn run build && node dist/server.js"
+    "build": "babel server/ --ignore 'tests/' -d dist",
+    "start": "yarn run clean && yarn run build && node dist/server.js",
+    "test": "jest"
   },
   "dependencies": {
     "express": "^4.16.1",
@@ -18,10 +19,13 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-jest": "^21.2.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "jest-cli": "^21.2.1",
     "nodemon": "^1.12.1",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "supertest": "^3.0.0"
   }
 }
