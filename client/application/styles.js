@@ -1,6 +1,6 @@
 export const cardTextStyle = {
-    fontSize: 42,
-    padding: "40px"
+    padding: "40px",
+    wordWrap: "break-word"
 }
 
 export const cardContainerStyle = {

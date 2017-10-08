@@ -1,39 +1,49 @@
 import React from "react"
+import { connect } from "react-redux"
 import { Divider, Slider, Toggle } from "material-ui"
 import { dividerStyle, sliderStyle, toggleStyle } from "./advanced.styles"
+import { updatePasswordSettings } from "../password/password.actions"
 
+@connect((store) => {
+    return {
+        reducerState: store.passwordReducer
+    }
+})
 export class AdvancedFormItemsComponent extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { length: 10, lowercase: true, uppercase: false, numbers: false, symbols: false }
         this.toggleList = this.generateToggleList()
         this.changeLength = this.changeLength.bind(this)
         this.changeToggle = this.changeToggle.bind(this)
     }
 
     generateToggleList() {
+        const { settings } = this.props.reducerState
         return [
-            { property: "lowercase", label: "Include Lowercase Letters", defaultToggled: this.state.lowercase },
-            { property: "uppercase", label: "Include Uppercase Letters", defaultToggled: this.state.uppercase },
-            { property: "numbers", label: "Include Numbers", defaultToggled: this.state.numbers },
-            { property: "symbols", label: "Include Symbols", defaultToggled: this.state.symbols }
+            { property: "lowercase", label: "Include Lowercase Letters", defaultToggled: settings.lowercase },
+            { property: "uppercase", label: "Include Uppercase Letters", defaultToggled: settings.uppercase },
+            { property: "numbers", label: "Include Numbers", defaultToggled: settings.numbers },
+            { property: "symbols", label: "Include Symbols", defaultToggled: settings.symbols }
         ]
     }
 
     changeLength(event, value) {
-        this.setState({ length: value })
+        this.props.dispatch(updatePasswordSettings({ length: value }))
     }
 
     changeToggle(event, value) {
         const property = event.target.dataset.property
-        this.setState({ [property]: value })
+        this.props.dispatch(updatePasswordSettings({ [property]: value }))
+
     }
 
     render() {
+        const { settings } = this.props.reducerState
+
         return (
             <div>
-                Length: { this.state.length }
-                <Slider value={ this.state.length } onChange={ this.changeLength } min={ 5 } max={ 100 } step={ 1 } sliderStyle={ sliderStyle }/>
+                Length: { settings.length }
+                <Slider value={ settings.length } onChange={ this.changeLength } min={ 5 } max={ 100 } step={ 1 } sliderStyle={ sliderStyle }/>
                 {
                     this.toggleList.map((toggle) => {
                         return (

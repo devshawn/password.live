@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
-import { Card, CardText } from "material-ui/Card"
+import { Card, CardText } from "material-ui"
 import { cardContainerStyle, cardTextStyle } from "../styles"
 
 @connect((store) => {
@@ -9,12 +9,9 @@ import { cardContainerStyle, cardTextStyle } from "../styles"
     }
 })
 export class PasswordBoxComponent extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
     render() {
         const { password } = this.props.reducerState
+        cardTextStyle.fontSize = `${48 - Math.trunc(Math.log(Math.round(password.length / 10)) * 10)}px`
 
         return (
             <Card containerStyle={ cardContainerStyle }>
