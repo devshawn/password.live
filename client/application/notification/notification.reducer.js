@@ -7,7 +7,6 @@ const initialState = {
 
 export function notificationReducer(state = initialState, action) {
     const updatedState = Object.assign({}, state)
-    console.log(action.type)
 
     switch (action.type) {
         case SEND_NOTIFICATION:

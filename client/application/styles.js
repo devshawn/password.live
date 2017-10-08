@@ -5,7 +5,8 @@ export const cardTextStyle = {
 
 export const cardContainerStyle = {
     paddingBottom: 0,
-    marginBottom: "5vh"
+    marginBottom: "5vh",
+    textAlign: "center"
 }
 
 export const generatePasswordButtonStyle = {
@@ -16,4 +17,8 @@ export const generatePasswordButtonStyle = {
 export const generatePasswordLabelStyle = {
     fontSize: 18,
     color: "white"
+}
+
+export const passwordButtonsComponentStyle = {
+    textAlign: "center"
 }

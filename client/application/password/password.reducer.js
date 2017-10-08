@@ -1,18 +1,21 @@
-import { INITIAL_PASSWORD_SUCCESS } from "./password.types"
+import { PASSWORD_ADVANCED_SUCCESS, PASSWORD_SIMPLE_SUCCESS } from "./password.types"
 
 const initialState = {
-    initialPassword: ""
+    password: ""
 }
 
 export function passwordReducer(state = initialState, action) {
     const updatedState = Object.assign({}, state)
 
     switch (action.type) {
-        case INITIAL_PASSWORD_SUCCESS:
-            updatedState.initialPassword = action.payload.password
+
+        case PASSWORD_SIMPLE_SUCCESS:
+        case PASSWORD_ADVANCED_SUCCESS:
+            updatedState.password = action.payload.password
             return updatedState
 
         default:
             return updatedState
+
     }
 }

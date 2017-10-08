@@ -16,7 +16,7 @@ export class AdvancedFormComponent extends React.Component {
                     avatar={ avatar }
                 />
                 <CardText>
-                    <AdvancedFormItemsComponent/>
+                    <AdvancedFormItemsComponent ref={ (advancedFormItemsComponent) => this.advancedFormItemsComponent = advancedFormItemsComponent }/>
                 </CardText>
             </Card>
         )

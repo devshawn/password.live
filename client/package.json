@@ -30,6 +30,7 @@
     "ptsans-npm-webfont": "^0.0.4",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-grid-system": "^2.9.6",
     "react-hot-loader": "next",
     "react-notification": "^6.8.0",
     "react-redux": "^5.0.6",

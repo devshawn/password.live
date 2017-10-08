@@ -1,9 +1,16 @@
 import { PasswordAPI } from "./password.api"
-import { INITIAL_PASSWORD_SUCCESS } from "./password.types"
+import { PASSWORD_SIMPLE_SUCCESS, PASSWORD_ADVANCED_SUCCESS } from "./password.types"
 
-export const getInitialPassword = () => {
+export const getSimplePassword = () => {
     return async (dispatch) => {
-        const request = await PasswordAPI.fetchInitialPassword()
-        return dispatch({ type: INITIAL_PASSWORD_SUCCESS, payload: request })
+        const response = await PasswordAPI.fetchSimplePassword()
+        return dispatch({ type: PASSWORD_SIMPLE_SUCCESS, payload: response })
+    }
+}
+
+export const getAdvancedPassword = (data) => {
+    return async (dispatch) => {
+        const response = await PasswordAPI.fetchAdvancedPassword(data)
+        return dispatch({ type: PASSWORD_ADVANCED_SUCCESS, payload: response })
     }
 }

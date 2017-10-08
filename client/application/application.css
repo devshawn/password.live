@@ -7,10 +7,6 @@ body {
     font-family: 'PT Sans', sans-serif !important;
 }
 
-.center-text {
-    text-align: center;
-}
-
 .container {
     width: 100%;
     height: calc(80vh - 64px);

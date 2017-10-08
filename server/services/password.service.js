@@ -12,7 +12,7 @@ export class PasswordService {
     generate(body) {
         const options = Object.assign({}, defaultPasswordSettings, body)
         const regex = this.generateRegexFromOptions(options)
-        const password = (regex !== "") ? generatePassword(options.length, false, regex) : ""
+        const password = (regex !== "[]") ? generatePassword(options.length, false, new RegExp(regex, "g")) : ""
         Logger.debugGeneration(regex, options, password)
         return password
     }
@@ -24,6 +24,6 @@ export class PasswordService {
         regex += options.numbers ? "0-9" : ""
         regex += options.symbols ? "\\?\\!\\-\\#\\%\\&" : ""
         regex += "]"
-        return new RegExp(regex, "g")
+        return regex
     }
 }
