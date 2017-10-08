@@ -1,15 +1,28 @@
 import { Router } from "../config/router"
-import generatePassword from "password-generator"
+import { PasswordService } from "../services/password.service"
 
 export class PasswordController extends Router {
+
+    constructor(server) {
+        super(server)
+        this.passwordService = new PasswordService()
+    }
+
     get routes() {
         return {
-            "GET /password/init": "init"
+            "GET /password/simple": "simple",
+            "POST /password/generate": "generate"
         }
     }
 
-    init(request, response) {
-        response.json({ password: generatePassword() })
+    simple(request, response) {
+        const password = this.passwordService.simple()
+        response.json({ password })
+    }
+
+    generate(request, response) {
+        const password = this.passwordService.generate(request.body)
+        response.json({ password })
     }
 
     static create(server) {

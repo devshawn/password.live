@@ -2,6 +2,7 @@ import { Logger } from "../utilities/logger"
 import { HomeController } from "../controllers/home.controller"
 import { PasswordController } from "../controllers/password.controller"
 import express from "express"
+import bodyParser from "body-parser"
 
 export const app = express()
 
@@ -13,6 +14,7 @@ export class Application {
     }
 
     initialize() {
+        app.use(bodyParser.json({ type: "*/*" }))
 
         // TODO: remove for production
         app.use("/", function (req, res, next) {
