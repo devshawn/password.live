@@ -1,16 +1,20 @@
 {
   "name": "password-generator",
-  "version": "1.0.0",
-  "description": "A simple password generator application.",
+  "version": "0.1.0",
+  "description": "A simple password generator application",
   "main": "application/server.js",
   "author": "Shawn Seymour <shawn@devshawn.com>",
   "license": "MIT",
   "scripts": {
-    "serve": "nodemon server/server.js --exec babel-node --ignore 'client/*'",
+    "serve": "NODE_ENV=development nodemon server/server.js --exec babel-node --ignore 'client/*'",
     "clean": "rimraf dist/",
     "build": "babel server/ --ignore 'tests/' -d dist",
-    "start": "yarn run clean && yarn run build && node dist/server.js",
-    "test": "jest"
+    "start": "NODE_ENV=production PORT=8080 API_URL=test node dist/server.js",
+    "dist": "yarn run clean && yarn run build",
+    "build:all": "yarn run dist && cd client/ && yarn run dist && mv dist/ ../dist/public",
+    "test:client": "cd client/ && jest",
+    "test:server": "jest",
+    "test": "yarn run test:server && yarn run test:client"
   },
   "dependencies": {
     "body-parser": "^1.18.2",

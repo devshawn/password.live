@@ -25,7 +25,7 @@ const render = Component => {
                 </Router>
             </Provider>
         </AppContainer>,
-        document.getElementById("application")
+        document.getElementById("root")
     )
 }
 

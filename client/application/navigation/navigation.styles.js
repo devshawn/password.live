@@ -17,6 +17,10 @@ export const appBarStyle = {
     background: lightBlue900
 }
 
+export const appBarTitleStyle = {
+    textOverflow: "hidden"
+}
+
 export const inkBarStyle = {
     backgroundColor: lightBlue500
 }

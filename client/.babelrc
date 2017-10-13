@@ -26,6 +26,21 @@
         "react-html-attrs",
         "transform-decorators-legacy"
       ]
+    },
+    "production": {
+      "presets": [
+        [
+          "es2015",
+          {
+            "modules": false
+          }
+        ],
+        "react"
+      ],
+      "plugins": [
+        "react-html-attrs",
+        "transform-decorators-legacy"
+      ]
     }
   }
 }

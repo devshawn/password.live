@@ -1,8 +1,10 @@
 import { Logger } from "../utilities/logger"
-import { HomeController } from "../controllers/home.controller"
 import { PasswordController } from "../controllers/password.controller"
+import { ReactController } from "../controllers/react.controller"
+import { HeartbeatController } from "../controllers/heartbeat.controller"
 import express from "express"
 import bodyParser from "body-parser"
+import path from "path"
 
 export const app = express()
 
@@ -16,14 +18,19 @@ export class Application {
     initialize() {
         app.use(bodyParser.json({ type: "*/*" }))
 
-        // TODO: remove for production
-        app.use("/", function (req, res, next) {
+        app.use("*", function (req, res, next) {
             res.header("Access-Control-Allow-Origin", "*")
             res.header("Access-Control-Allow-Headers", "X-Requested-With")
             next()
         })
 
-        HomeController.create(app)
+        // Order matters here because of wildcard, ReactController must be last
+        HeartbeatController.create(app)
         PasswordController.create(app)
+
+        if (process.env.NODE_ENV === "production") {
+            app.use(express.static(path.join(__dirname, "../public/")))
+            ReactController.create(app)
+        }
     }
 }

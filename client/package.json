@@ -1,11 +1,15 @@
 {
   "name": "password-generator-client",
-  "version": "1.0.0",
+  "description": "React client for generating passwords",
+  "version": "0.1.0",
   "main": "client.js",
   "license": "MIT",
   "scripts": {
-    "serve": "NODE_ENV=development webpack-dev-server --hot --history-api-fallback",
-    "test": "NODE_ENV=testing jest"
+    "clean": "rimraf dist/",
+    "build": "NODE_ENV=production API_URL='/' webpack",
+    "serve": "NODE_ENV=development webpack-dev-server --hot --history-api-fallback --port 5500",
+    "test": "NODE_ENV=testing jest",
+    "dist": "yarn run clean && yarn run build"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -17,8 +21,11 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.5",
+    "html-webpack-plugin": "^2.30.1",
+    "html-webpack-react-root-plugin": "^0.9.0",
     "jest-cli": "^21.2.1",
     "regenerator-runtime": "^0.11.0",
+    "rimraf": "^2.6.2",
     "style-loader": "^0.19.0",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.9.1"
