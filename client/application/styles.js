@@ -9,6 +9,10 @@ export const cardContainerStyle = {
     textAlign: "center"
 }
 
+export const containerDivStyle = {
+    height: "200px"
+}
+
 export const generatePasswordButtonStyle = {
     margin: "0 15px",
     width: "250px"
