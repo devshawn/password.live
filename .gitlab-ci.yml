@@ -32,4 +32,4 @@ publish:
     - docker tag password-generator $CI_REGISTRY_IMAGE:latest
     - docker push $CI_REGISTRY_IMAGE
   dependencies:
-    - dist
+    - build
