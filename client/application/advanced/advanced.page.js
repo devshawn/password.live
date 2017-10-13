@@ -7,6 +7,7 @@ import { PasswordButtonsComponent } from "../password/password.buttons.component
 import { getAdvancedPassword } from "../password/password.actions"
 import { validatePasswordSettings } from "../password/password.helper"
 import { sendNotification } from "../notification/notification.actions"
+import { PASSWORD_ADVANCED } from "../password/password.categories"
 
 @connect((store) => {
     return {
@@ -21,7 +22,8 @@ export class AdvancedPage extends React.Component {
     }
 
     componentDidMount() {
-        this.generatePassword()
+        const { passwordAdvanced } = this.props.reducerState
+        if (passwordAdvanced === "") this.generatePassword()
     }
 
     generatePassword() {
@@ -37,8 +39,8 @@ export class AdvancedPage extends React.Component {
         return (
             <div style={ { width: "80vw" } }>
                 <Col xs={ 12 } md={ 7 } push={ { md: 5 } }>
-                    <PasswordBoxComponent/>
-                    <PasswordButtonsComponent generatePassword={ this.generatePassword }/>
+                    <PasswordBoxComponent passwordCategory={ PASSWORD_ADVANCED }/>
+                    <PasswordButtonsComponent passwordCategory={ PASSWORD_ADVANCED } generatePassword={ this.generatePassword }/>
                 </Col>
                 <Col xs={ 12 } md={ 5 } pull={ { md: 7 } }>
                     <AdvancedFormComponent/>

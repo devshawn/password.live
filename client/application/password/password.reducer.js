@@ -2,7 +2,8 @@ import { PASSWORD_ADVANCED_SUCCESS, PASSWORD_SIMPLE_SUCCESS, SETTINGS_UPDATE } f
 import { defaultPasswordSettings } from "../../../server/constants/password.constants"
 
 const initialState = {
-    password: "",
+    passwordSimple: "",
+    passwordAdvanced: "",
     settings: defaultPasswordSettings
 }
 
@@ -12,8 +13,11 @@ export function passwordReducer(state = initialState, action) {
     switch (action.type) {
 
         case PASSWORD_SIMPLE_SUCCESS:
+            updatedState.passwordSimple = action.payload.password
+            return updatedState
+
         case PASSWORD_ADVANCED_SUCCESS:
-            updatedState.password = action.payload.password
+            updatedState.passwordAdvanced = action.payload.password
             return updatedState
 
         case SETTINGS_UPDATE:

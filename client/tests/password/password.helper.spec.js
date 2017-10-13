@@ -1,4 +1,5 @@
-import { validatePasswordSettings } from "../../application/password/password.helper"
+import { getPasswordFromCategory, validatePasswordSettings } from "../../application/password/password.helper"
+import { PASSWORD_ADVANCED, PASSWORD_SIMPLE } from "../../application/password/password.categories"
 
 describe("validatePasswordSettings", () => {
     it("should be valid when one or more booleans is true", () => {
@@ -30,5 +31,20 @@ describe("validatePasswordSettings", () => {
         cases.forEach((settings) => {
             expect(validatePasswordSettings(settings)).toBe(true)
         })
+    })
+})
+
+describe("getPasswordFromCategory", () => {
+    const state = {
+        passwordSimple: "simple",
+        passwordAdvanced: "advanced"
+    }
+
+    it("should return the simple password", () => {
+        expect(getPasswordFromCategory(PASSWORD_SIMPLE, state)).toBe("simple")
+    })
+
+    it("should return the advanced password", () => {
+        expect(getPasswordFromCategory(PASSWORD_ADVANCED, state)).toBe("advanced")
     })
 })

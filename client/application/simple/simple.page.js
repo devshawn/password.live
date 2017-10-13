@@ -1,11 +1,36 @@
 import React from "react"
-import { SimplePasswordComponent } from "./simple.password.component"
+import { connect } from "react-redux"
+import { getSimplePassword } from "../password/password.actions"
+import { PasswordBoxComponent } from "../password/password.box.component"
+import { PasswordButtonsComponent } from "../password/password.buttons.component"
+import { PASSWORD_SIMPLE } from "../password/password.categories"
 
+@connect((store) => {
+    return {
+        reducerState: store.passwordReducer
+    }
+})
 export class SimplePage extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.generatePassword = this.generatePassword.bind(this)
+    }
+
+    componentWillMount() {
+        const { passwordSimple } = this.props.reducerState
+        if (passwordSimple === "") this.generatePassword()
+    }
+
+    generatePassword() {
+        this.props.dispatch(getSimplePassword())
+    }
+
     render() {
         return (
             <div>
-                <SimplePasswordComponent/>
+                <PasswordBoxComponent passwordCategory={ PASSWORD_SIMPLE }/>
+                <PasswordButtonsComponent passwordCategory={ PASSWORD_SIMPLE } generatePassword={ this.generatePassword }/>
             </div>
         )
     }

@@ -5,6 +5,7 @@ import { RaisedButton } from "material-ui"
 import { generatePasswordButtonStyle, generatePasswordLabelStyle, passwordButtonsComponentStyle } from "../styles"
 import { lightBlue500 } from "material-ui/styles/colors"
 import { sendNotification } from "../notification/notification.actions"
+import { getPasswordFromCategory } from "./password.helper"
 
 @connect((store) => {
     return {
@@ -19,7 +20,8 @@ export class PasswordButtonsComponent extends React.Component {
     }
 
     copyPassword() {
-        copy(this.props.reducerState.password)
+        const password = getPasswordFromCategory(this.props.passwordCategory, this.props.reducerState)
+        copy(password)
         this.props.dispatch(sendNotification("Password copied to clipboard!"))
     }
 

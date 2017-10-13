@@ -4,8 +4,8 @@
   "main": "client.js",
   "license": "MIT",
   "scripts": {
-    "serve": "webpack-dev-server --hot --history-api-fallback",
-    "test": "jest"
+    "serve": "NODE_ENV=development webpack-dev-server --hot --history-api-fallback",
+    "test": "NODE_ENV=testing jest"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-latest": "^6.24.1",
     "copy-to-clipboard": "^3.0.8",
     "font-awesome": "^4.7.0",

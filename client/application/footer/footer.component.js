@@ -1,15 +1,19 @@
 import React from "react"
-import { Toolbar, ToolbarGroup } from "material-ui/Toolbar"
-import { footerBoxStyle, footerStyle } from "./footer.styles"
+import { footerLeftStyle, footerRightStyle, footerStyle } from "./footer.styles"
+import { FooterGitlabIcon } from "./footer.gitlab.icon"
 
 export class FooterComponent extends React.Component {
     render() {
         return (
-            <Toolbar style={ footerStyle }>
-                <ToolbarGroup firstChild={ true } style={ footerBoxStyle }>
+            <div style={ footerStyle }>
+                <div style={ footerLeftStyle }>
                     Copyright &copy; 2017
-                </ToolbarGroup>
-            </Toolbar>
+                </div>
+                <div style={ footerRightStyle }>
+                    <FooterGitlabIcon/>
+                </div>
+
+            </div>
         )
     }
 }
