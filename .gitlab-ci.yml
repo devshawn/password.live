@@ -11,7 +11,9 @@ cache:
 
 build:
   stage: build
-  script: yarn run build
+  script:
+    - yarn install
+    - yarn run build
   artifacts:
       expire_in: 1 week
       paths:
