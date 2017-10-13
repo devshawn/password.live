@@ -4,15 +4,15 @@ import { NavigationComponent } from "./navigation/navigation.component"
 import "./application.css"
 
 import "ptsans-npm-webfont"
-import { FooterComponent } from "./footer/footer.component"
 import { NotificationComponent } from "./notification/notification.component"
 import { RouterComponent } from "./router/router.component"
+import { FooterComponent } from "./footer/footer.component"
 
 export default class Application extends React.Component {
     render() {
         const { history } = this.props
         return (
-            <div>
+            <div id="main">
                 <NavigationComponent history={ history }/>
                 <RouterComponent/>
                 <NotificationComponent/>

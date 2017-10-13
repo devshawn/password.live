@@ -2,7 +2,7 @@ import React from "react"
 import copy from "copy-to-clipboard"
 import { connect } from "react-redux"
 import { RaisedButton } from "material-ui"
-import { generatePasswordButtonStyle, generatePasswordLabelStyle, passwordButtonsComponentStyle } from "../styles"
+import { buttonStyle, buttonLabelStyle, passwordButtonsComponentStyle } from "../styles"
 import { lightBlue500 } from "material-ui/styles/colors"
 import { sendNotification } from "../notification/notification.actions"
 import { getPasswordFromCategory } from "./password.helper"
@@ -33,14 +33,14 @@ export class PasswordButtonsComponent extends React.Component {
                 <RaisedButton onClick={ generatePassword }
                               backgroundColor={ lightBlue500 }
                               label="Generate Password"
-                              labelStyle={ generatePasswordLabelStyle }
-                              style={ generatePasswordButtonStyle }
+                              labelStyle={ buttonLabelStyle }
+                              style={ buttonStyle }
                 />
                 <RaisedButton onClick={ this.copyPassword }
                               backgroundColor="#F18A00"
                               label="Copy Password"
-                              labelStyle={ generatePasswordLabelStyle }
-                              style={ generatePasswordButtonStyle }
+                              labelStyle={ buttonLabelStyle }
+                              style={ buttonStyle }
                 />
             </div>
         )

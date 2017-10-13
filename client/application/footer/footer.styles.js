@@ -1,10 +1,7 @@
 import { lightBlue100, lightBlue900 } from "material-ui/styles/colors"
 
 export const footerStyle = {
-    position: "fixed",
-    bottom: 0,
-    left: 0,
-    right: 0,
+    height: "28px",
     background: lightBlue900,
     color: "white",
     boxShadow: "rgba(0, 0, 0, 0.12) 0px -2px 6px, rgba(0, 0, 0, 0.12) 0px -2px 4px",

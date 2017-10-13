@@ -4,6 +4,7 @@ import { getSimplePassword } from "../password/password.actions"
 import { PasswordBoxComponent } from "../password/password.box.component"
 import { PasswordButtonsComponent } from "../password/password.buttons.component"
 import { PASSWORD_SIMPLE } from "../password/password.categories"
+import { Col } from "react-grid-system"
 
 @connect((store) => {
     return {
@@ -28,10 +29,10 @@ export class SimplePage extends React.Component {
 
     render() {
         return (
-            <div>
+            <Col xs={ 12 }>
                 <PasswordBoxComponent passwordCategory={ PASSWORD_SIMPLE }/>
                 <PasswordButtonsComponent passwordCategory={ PASSWORD_SIMPLE } generatePassword={ this.generatePassword }/>
-            </div>
+            </Col>
         )
     }
 }

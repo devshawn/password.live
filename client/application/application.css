@@ -1,18 +1,30 @@
 @import "~font-awesome/css/font-awesome.css";
 
 body {
-    background: #FAFAFA;
     margin: 0;
+    background: #FAFAFA;
     font-size: 14px;
     font-family: 'PT Sans', sans-serif !important;
 }
 
-.container {
-    width: 100%;
-    height: calc(80vh - 64px);
+#main {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.wrapper {
+    padding: 30px 10px 50px;
+    overflow-y: auto;
+    flex-grow: 4;
     display: flex;
 }
 
 .center-vertically {
     margin: auto;
+}
+
+.page {
+    margin: 0 auto;
+    width: 80vw;
 }

@@ -1,5 +1,5 @@
 import React from "react"
-import { Col } from "react-grid-system"
+import { Col, Hidden, Visible } from "react-grid-system"
 import { connect } from "react-redux"
 import { AdvancedFormComponent } from "./advanced.form.component"
 import { PasswordBoxComponent } from "../password/password.box.component"
@@ -19,6 +19,7 @@ export class AdvancedPage extends React.Component {
     constructor(props) {
         super(props)
         this.generatePassword = this.generatePassword.bind(this)
+        this.renderButtons = this.renderButtons.bind(this)
     }
 
     componentDidMount() {
@@ -35,12 +36,17 @@ export class AdvancedPage extends React.Component {
         }
     }
 
+    renderButtons() {
+        return <PasswordButtonsComponent passwordCategory={ PASSWORD_ADVANCED } generatePassword={ this.generatePassword }/>
+    }
+
     render() {
         return (
-            <div style={ { width: "80vw" } }>
+            <div className="page">
                 <Col xs={ 12 } md={ 7 } push={ { md: 5 } }>
+                    <Visible xs sm>{ this.renderButtons() }</Visible>
                     <PasswordBoxComponent passwordCategory={ PASSWORD_ADVANCED }/>
-                    <PasswordButtonsComponent passwordCategory={ PASSWORD_ADVANCED } generatePassword={ this.generatePassword }/>
+                    <Hidden xs sm>{ this.renderButtons() }</Hidden>
                 </Col>
                 <Col xs={ 12 } md={ 5 } pull={ { md: 7 } }>
                     <AdvancedFormComponent/>

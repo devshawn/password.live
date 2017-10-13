@@ -6,7 +6,7 @@ import { NotFoundPage } from "../error/not.found.page"
 export class RouterComponent extends React.Component {
     render() {
         return (
-            <div className="container">
+            <div className="wrapper">
                 <div className="center-vertically">
                     <Switch>
                         {
@@ -20,11 +20,4 @@ export class RouterComponent extends React.Component {
             </div>
         )
     }
-}
-
-{/*<Route exact path="/" component={ SimplePage }/>*/
-}
-{/*<Route exact path="/advanced" component={ AdvancedPage }/>*/
-}
-{/*<Route path="*" component={ NotFoundPage }/>*/
 }

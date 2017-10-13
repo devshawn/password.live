@@ -10,15 +10,15 @@ export const cardContainerStyle = {
 }
 
 export const containerDivStyle = {
-    height: "200px"
+    height: "auto"
 }
 
-export const generatePasswordButtonStyle = {
-    margin: "0 15px",
+export const buttonStyle = {
+    margin: "0 15px 30px",
     width: "250px"
 }
 
-export const generatePasswordLabelStyle = {
+export const buttonLabelStyle = {
     fontSize: 18,
     color: "white"
 }
