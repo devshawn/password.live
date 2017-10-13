@@ -8,10 +8,11 @@
   "scripts": {
     "serve": "NODE_ENV=development nodemon server/server.js --exec babel-node --ignore 'client/*'",
     "clean": "rimraf dist/",
-    "build": "babel server/ --ignore 'tests/' -d dist",
     "start": "NODE_ENV=production PORT=8080 API_URL=test node dist/server.js",
-    "dist": "yarn run clean && yarn run build",
-    "build:all": "yarn run dist && cd client/ && yarn run dist && mv dist/ ../dist/public",
+    "dist": "yarn run clean && yarn run build:server",
+    "build:client": "cd client/ && yarn run dist && mv dist/ ../dist/public",
+    "build:server": "babel server/ --ignore 'tests/' -d dist",
+    "build": "yarn run build:server && yarn run build:client",
     "test:client": "cd client/ && jest",
     "test:server": "jest",
     "test": "yarn run test:server && yarn run test:client"
