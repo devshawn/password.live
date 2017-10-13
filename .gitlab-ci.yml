@@ -13,6 +13,7 @@ build:
   stage: build
   script:
     - yarn install
+    - cd client/ && yarn install && cd ..
     - yarn run build
   artifacts:
       expire_in: 1 week
