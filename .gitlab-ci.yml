@@ -3,11 +3,11 @@ image: devshawn/gitlab-dind-node-yarn
 stages:
   - build
   - test
-  - publish
 
 cache:
   paths:
   - node_modules/
+  - client/node_modules/
 
 build:
   stage: build

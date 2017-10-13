@@ -6,7 +6,6 @@
         "react"
       ],
       "plugins": [
-        "react-hot-loader/babel",
         "react-html-attrs",
         "transform-decorators-legacy"
       ]

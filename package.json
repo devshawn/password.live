@@ -13,7 +13,7 @@
     "build:client": "cd client/ && yarn run dist && mv dist/ ../dist/public",
     "build:server": "babel server/ --ignore 'tests/' -d dist",
     "build": "yarn run build:server && yarn run build:client",
-    "test:client": "cd client/ && NODE_ENV=testing jest",
+    "test:client": "cd client/ && yarn run test",
     "test:server": "jest",
     "test": "yarn run test:server && yarn run test:client"
   },
