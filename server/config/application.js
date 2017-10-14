@@ -28,7 +28,7 @@ export class Application {
         HeartbeatController.create(app)
         PasswordController.create(app)
 
-        if (process.env.NODE_ENV === "production") {
+        if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "staging") {
             app.use(express.static(path.join(__dirname, "../public/")))
             ReactController.create(app)
         }
