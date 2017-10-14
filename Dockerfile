@@ -4,6 +4,7 @@ MAINTAINER We Create Software <contact@wecreate.software>
 # Create unpriviledged user named app
 RUN useradd --user-group --create-home --shell /bin/false app
 
+# Set environment variables
 ENV HOME=/home/app
 
 # Copy over our package information
@@ -22,4 +23,4 @@ COPY dist/ dist/
 
 # Expose port and assign start command
 EXPOSE 8080
-CMD ["yarn", "start"]
+CMD ["node", "dist/server.js"]
