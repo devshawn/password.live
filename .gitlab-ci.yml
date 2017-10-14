@@ -3,6 +3,7 @@ image: devshawn/gitlab-dind-node-yarn
 stages:
   - build
   - test
+  - publish
 
 cache:
   paths:
