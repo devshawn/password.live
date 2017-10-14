@@ -4,6 +4,14 @@ stages:
   - build
   - test
   - publish
+  - deploy
+
+before_script:
+  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+  - eval $(ssh-agent -s)
+  - ssh-add <(echo "$STAGING_PRIVATE_KEY")
+  - mkdir -p ~/.ssh
+  - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
 
 cache:
   paths:
@@ -37,3 +45,14 @@ publish:
     - docker push $CI_REGISTRY_IMAGE
   dependencies:
     - build
+
+deploy_staging:
+  stage: deploy
+  script:
+    - echo "Deploying to staging server"
+    - ./deploy.sh $CI_JOB_TOKEN $REGISTRY_HOST
+  environment:
+      name: STAGING
+      url: http://staging.password.live
+  only:
+    - master
