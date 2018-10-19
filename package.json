@@ -1,6 +1,6 @@
 {
-  "name": "password-generator",
-  "version": "0.1.0",
+  "name": "password-generator-server",
+  "version": "0.1.1",
   "description": "A simple password generator application",
   "main": "application/server.js",
   "author": "Shawn Seymour <shawn@devshawn.com>",

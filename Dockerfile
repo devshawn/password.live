@@ -1,5 +1,5 @@
 FROM node:8
-MAINTAINER We Create Software <contact@wecreate.software>
+MAINTAINER Shawn Seymour <shawn@devshawn.com>
 
 # Create unpriviledged user named app
 RUN useradd --user-group --create-home --shell /bin/false app

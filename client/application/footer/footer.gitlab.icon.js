@@ -33,7 +33,7 @@ export class FooterGitlabIcon extends React.Component {
         const iconStyle = pressed ? iconPressedStyle : (hover ? iconHoverOnStyle : iconHoverOffStyle)
 
         return (
-            <a href="https://gitlab.com/wecreatesoftware/password-generator"
+            <a href="https://github.com/devshawn/password.live"
                target="_blank"
                style={ iconStyle }
                onMouseEnter={ this.hoverOn }
@@ -41,7 +41,7 @@ export class FooterGitlabIcon extends React.Component {
                onMouseDown={ this.pressedOn }
                onMouseUp={ this.pressedOff }
             >
-                <i className="fa fa-gitlab fa-2x"/>
+                <i className="fa fa-github fa-2x"/>
             </a>
         )
     }

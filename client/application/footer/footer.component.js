@@ -7,7 +7,7 @@ export class FooterComponent extends React.Component {
         return (
             <div style={ footerStyle }>
                 <div style={ footerLeftStyle }>
-                    Copyright &copy; 2017
+                    Copyright &copy; {(new Date()).getFullYear()}
                 </div>
                 <div style={ footerRightStyle }>
                     <FooterGitlabIcon/>

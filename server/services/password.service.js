@@ -1,5 +1,4 @@
 import generatePassword from "password-generator"
-import { Logger } from "../utilities/logger"
 import { defaultPasswordSettings } from "../constants/password.constants"
 
 export class PasswordService {
@@ -12,9 +11,7 @@ export class PasswordService {
     generate(body) {
         const options = Object.assign({}, defaultPasswordSettings, body)
         const regex = this.generateRegexFromOptions(options)
-        const password = (regex !== "[]") ? generatePassword(options.length, false, new RegExp(regex, "g")) : ""
-        Logger.debugGeneration(regex, options, password)
-        return password
+        return (regex !== "[]") ? generatePassword(options.length, false, new RegExp(regex, "g")) : ""
     }
 
     generateRegexFromOptions(options) {

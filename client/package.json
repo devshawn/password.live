@@ -1,8 +1,9 @@
 {
   "name": "password-generator-client",
   "description": "React client for generating passwords",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "client.js",
+  "author": "Shawn Seymour <shawn@devshawn.com>",
   "license": "MIT",
   "scripts": {
     "clean": "rimraf dist/",
