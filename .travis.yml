@@ -10,6 +10,7 @@ cache:
 node_js:
   - "8"
 install:
+  - npm install -g lerna
   - npm install
   - npm run bootstrap
 script:

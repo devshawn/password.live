@@ -3,7 +3,9 @@ MAINTAINER Shawn Seymour <shawn@devshawn.com>
 
 RUN useradd --user-group --create-home --shell /bin/false app
 ENV HOME=/home/app
-RUN chown -R app:app $HOME/*
+ENV NODE_ENV=production
+ENV PORT=8080
+RUN chown -R app:app $HOME
 
 USER app
 WORKDIR $HOME/password
