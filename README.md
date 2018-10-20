@@ -4,6 +4,11 @@
 
 [![Build Status](https://travis-ci.org/devshawn/password.live.svg?branch=master)](https://travis-ci.org/devshawn/password.live)  [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/devshawn/react-dayjs/blob/master/LICENSE.md) [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
 
+* [Overview](#overview)
+* [Development](#development)
+* [Contributing](#contributing)
+* [License](#license)
+
 ## Overview
 Password.live is a web-based password generator written in React, Redux, and Node. The main idea was to create a simple web-based application to generate both simple and complex passwords. The application does not log or store any passwords that are created and is secured by SSL. A docker image is also provided to easily run password.live locally as well.
 
