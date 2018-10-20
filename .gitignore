@@ -1,5 +1,6 @@
-.idea
-*.log
 node_modules/
 dist/
 coverage/
+.idea/
+*.iml
+*.log

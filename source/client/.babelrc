@@ -1,6 +1,6 @@
 {
   "env": {
-    "testing": {
+    "test": {
       "presets": [
         "es2015",
         "react"

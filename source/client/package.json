@@ -1,16 +1,17 @@
 {
-  "name": "password-generator-client",
-  "description": "React client for generating passwords",
+  "name": "client",
+  "description": "Front-end client for password.live",
   "version": "0.1.1",
   "main": "client.js",
   "author": "Shawn Seymour <shawn@devshawn.com>",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "clean": "rimraf dist/",
-    "build": "NODE_ENV=production API_URL='/' webpack",
     "serve": "NODE_ENV=development webpack-dev-server --hot --history-api-fallback --port 5500",
-    "test": "NODE_ENV=testing jest",
-    "dist": "yarn run clean && yarn run build"
+    "build": "NODE_ENV=production API_URL='/' webpack",
+    "dist": "npm run clean && npm run build",
+    "test": "NODE_ENV=test jest"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -108,5 +109,17 @@
     "faye-websocket": "0.11.1",
     "url-parse": "1.1.9",
     "querystringify": "1.0.0"
+  },
+  "homepage": "https://github.com/devshawn/password.live#readme",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devshawn/password.live.git"
+  },
+  "bugs": {
+    "url": "https://github.com/devshawn/password.live/issues"
   }
 }

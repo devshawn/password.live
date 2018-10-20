@@ -1,37 +1,19 @@
 {
-  "name": "password-generator-server",
-  "version": "0.1.1",
-  "description": "A simple password generator application",
-  "main": "application/server.js",
-  "author": "Shawn Seymour <shawn@devshawn.com>",
-  "license": "MIT",
+  "name": "root",
+  "private": true,
   "scripts": {
-    "serve": "NODE_ENV=development nodemon server/server.js --exec babel-node --ignore 'client/*'",
-    "clean": "rimraf dist/",
-    "start": "NODE_ENV=production PORT=8080 node dist/server.js",
-    "dist": "yarn run clean && yarn run build:server",
-    "build:client": "cd client/ && yarn run dist && mv dist/ ../dist/public",
-    "build:server": "babel server/ --ignore 'tests/' -d dist",
-    "build": "yarn run build:server && yarn run build:client",
-    "test:client": "cd client/ && yarn run test",
-    "test:server": "jest",
-    "test": "yarn run test:server && yarn run test:client"
-  },
-  "dependencies": {
-    "body-parser": "^1.18.2",
-    "express": "^4.16.1",
-    "password-generator": "^2.2.0",
-    "path": "^0.12.7"
+    "clean": "rimraf ./dist && rimraf ./node_modules",
+    "bootstrap": "lerna clean -y && lerna bootstrap",
+    "test": "lerna run --parallel test",
+    "build": "lerna run --parallel dist",
+    "prune": "lerna exec -- npm prune -- production",
+    "combine": "mv source/client/dist/ source/server/dist/public && mv source/server/dist ./dist",
+    "postcombine": "mv source/server/node_modules ./node_modules && mv source/client/node_modules ./dist/public/node_modules",
+    "compile": "npm run clean && npm run bootstrap && npm run build && npm run prune && npm run combine",
+    "start": "NODE_ENV=production PORT=8080 node ./dist/server.js"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-jest": "^21.2.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "jest-cli": "^21.2.1",
-    "nodemon": "^1.12.1",
-    "rimraf": "^2.6.2",
-    "supertest": "^3.0.0"
+    "lerna": "^3.4.3",
+    "rimraf": "^2.6.2"
   }
 }
