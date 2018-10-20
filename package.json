@@ -4,7 +4,10 @@
   "scripts": {
     "clean": "rimraf ./dist && rimraf ./node_modules",
     "bootstrap": "lerna clean -y && lerna bootstrap",
+    "serve": "lerna run --parallel serve",
     "test": "lerna run --parallel test",
+    "test:client": "cd source/client && npm run test",
+    "test:server": "cd source/server && npm run test",
     "build": "lerna run --parallel dist",
     "prune": "lerna exec -- npm prune -- production",
     "combine": "mv source/client/dist/ source/server/dist/public && mv source/server/dist ./dist",

@@ -69,4 +69,4 @@ This software is released under the MIT license. See [LICENSE.md][license] for m
 [localhost-server]: http://localhost:5501
 [localhost-production]: http://localhost:8080
 [contributing]: https://github.com/devshawn/password.live/blob/master/CONTRIBUTING.md
-[license]: https://github.com/devshawn/password.live/blob/master/LICENSE.md
+[license]: https://github.com/devshawn/password.live/blob/master/LICENSE
