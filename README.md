@@ -61,7 +61,7 @@ Interested in contributing? Read [CONTRIBUTING.md][contributing] to learn more.
 
 ## License
 
-This software is released under the MIT license. See [LICENSE.md][license] for more details.
+This software is released under the MIT license. See [LICENSE][license] for more details.
 
 [password]: https://password.live
 [node]: https://nodejs.org
