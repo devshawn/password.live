@@ -1,12 +1,9 @@
 # password.live
 
-🔒 Generate simple or complex passwords directly from your web browser.
+🔒 Generate simple or complex passwords directly from your web browser. [https://password.live][password]
 
 ## Overview
 Password.live is a web-based password generator written in React, Redux, and Node. The main idea was to create a simple web-based application to generate both simple and complex passwords. The application does not log or store any passwords that are created and is secured by SSL. A docker image is also provided to easily run password.live locally as well.
-
-Visit [https://password.live][password] to start generating passwords today! 
-
 
 ## Development
 Password.live utilizes Lerna & npm for package management. This project is a monorepo, meaning the client and the server are in the same repository. Ensure you have [node/npm][node] installed. Then, install root dependencies by running:
