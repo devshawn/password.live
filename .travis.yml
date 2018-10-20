@@ -1,0 +1,17 @@
+sudo: required
+services:
+  - docker
+language: node_js
+cache:
+  directories:
+    - ~/.npm
+    - "source/server/node_modules"
+    - "source/client/node_modules"
+node_js:
+  - "8"
+install:
+  - npm install
+  - npm run bootstrap
+script:
+  - npm run test
+  - npm run compile
