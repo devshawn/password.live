@@ -1,7 +1,7 @@
 import React from "react"
 import { iconHoverOffStyle, iconHoverOnStyle, iconPressedStyle } from "./footer.styles"
 
-export class FooterGitlabIcon extends React.Component {
+export class FooterGithubIcon extends React.Component {
 
     constructor(props) {
         super(props)

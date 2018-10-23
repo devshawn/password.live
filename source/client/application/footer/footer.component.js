@@ -1,6 +1,6 @@
 import React from "react"
 import { footerLeftStyle, footerRightStyle, footerStyle } from "./footer.styles"
-import { FooterGitlabIcon } from "./footer.gitlab.icon"
+import { FooterGithubIcon } from "./footer.github.icon"
 
 export class FooterComponent extends React.Component {
     render() {
@@ -10,7 +10,7 @@ export class FooterComponent extends React.Component {
                     Copyright &copy; {(new Date()).getFullYear()}
                 </div>
                 <div style={ footerRightStyle }>
-                    <FooterGitlabIcon/>
+                    <FooterGithubIcon/>
                 </div>
 
             </div>
