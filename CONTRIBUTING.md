@@ -1,6 +1,6 @@
 # Contributing
 
-Any contributions to this project are welcome! See [README.md](readme.md) for details on how to run password.live locally. 
+Any contributions to this project are welcome! See [README.md](README.md) for details on how to run password.live locally. 
 
 ## Pull Requests
 1. Discuss your proposed change in a GitHub issue first before spending time and implementing a feature or fix.
