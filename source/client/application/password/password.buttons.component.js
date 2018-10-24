@@ -55,6 +55,6 @@ export class PasswordButtonsComponent extends React.Component {
                     style={buttonStyle}
                 />
             </div>
-        ]
+        )
     }
 }
