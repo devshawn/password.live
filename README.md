@@ -18,7 +18,7 @@ Password.live utilizes Lerna & npm for package management. This project is a mon
 npm install
 ```
 
-Dependencies for subprojects are automatically installed through a postinstall hook running `lerna bootstrap`. You can manually bootstrap all dependencies by running:
+Dependencies for sub-projects are automatically installed through a postinstall hook running `lerna bootstrap`. You can manually bootstrap all dependencies by running:
 ```bash
 npm run bootstrap
 ```
