@@ -1,9 +1,8 @@
 import React from "react"
 import copy from "copy-to-clipboard"
 import { connect } from "react-redux"
-import { RaisedButton } from "material-ui"
-import { buttonLabelStyle, buttonStyle, passwordButtonsComponentStyle } from "../styles"
-import { lightBlue500 } from "material-ui/styles/colors"
+import Button from "@material-ui/core/Button"
+import { buttonStyle, buttonLabelStyle, passwordButtonsComponentStyle } from "../styles"
 import { sendNotification } from "../notification/notification.actions"
 import { updatePasswordSettings } from "../settings/settings.actions"
 
@@ -33,28 +32,30 @@ export class PasswordButtonsComponent extends React.Component {
     render() {
         const { generatePassword } = this.props
 
-        return [
-            <div style={ passwordButtonsComponentStyle } key={ 1 }>
-                <RaisedButton onClick={ generatePassword }
-                              backgroundColor={ lightBlue500 }
-                              label="Generate Password"
-                              labelStyle={ buttonLabelStyle }
-                              style={ buttonStyle }
-                />
-                <RaisedButton onClick={ this.copyPassword }
-                              backgroundColor="#F18A00"
-                              label="Copy Password"
-                              labelStyle={ buttonLabelStyle }
-                              style={ buttonStyle }
-                />
-            </div>,
-            <div style={ { textAlign: "center" } } key={ 2 }>
-                <RaisedButton onClick={ this.toggleSettings }
-                              backgroundColor="#757575"
-                              label="Toggle Settings"
-                              labelStyle={ buttonLabelStyle }
-                              style={ buttonStyle }
-                />
+        return (
+            <div style={passwordButtonsComponentStyle}>
+                <label style={buttonLabelStyle}>
+                    <Button onClick={generatePassword}
+                        color="primary"
+                        variant="contained"
+                        // backgroundColor={lightBlue500}
+                        // label="Generate Password"
+                        // labelStyle={buttonLabelStyle}
+                        style={buttonStyle}
+                    >
+                        Generate Password
+                    </Button>
+                </label>
+                <Button onClick={this.copyPassword}
+                    color="secondary"
+                    variant="contained"
+                    // backgroundColor="#F18A00"
+                    // label="Copy Password"
+                    // labelStyle={buttonLabelStyle}
+                    style={buttonStyle}
+                >
+                    Copy Password
+                </Button>
             </div>
         ]
     }
