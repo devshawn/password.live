@@ -8,7 +8,7 @@ export class ErrorPage extends React.Component {
     render() {
         return (
             <Card
-            // containerStyle={cardContainerStyle}
+                style={cardContainerStyle}
             >
                 <CardText style={notFoundCardTextStyle}>
                     Oh no! Page not found! Try using the navigation bar above.

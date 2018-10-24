@@ -1,9 +1,8 @@
-import lightBlue500 from "@material-ui/core/colors/lightBlue"
-import lightBlue900 from "@material-ui/core/colors/lightBlue"
+import lightBlue from "@material-ui/core/colors/lightBlue"
 
 export const tabItemContainerStyle = (items) => {
     return {
-        background: lightBlue900,
+        background: lightBlue[900],
         margin: 0,
         height: "64px",
         width: `${items * 150}px`
@@ -15,7 +14,7 @@ export const tabItemStyle = {
 }
 
 export const appBarStyle = {
-    background: lightBlue900
+    background: lightBlue[900]
 }
 
 export const appBarTitleStyle = {
@@ -23,7 +22,7 @@ export const appBarTitleStyle = {
 }
 
 export const inkBarStyle = {
-    backgroundColor: lightBlue500
+    backgroundColor: lightBlue[500]
 }
 
 export const iconStyle = {

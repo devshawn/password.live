@@ -3,7 +3,7 @@ import { Col } from "react-grid-system"
 import Card from "@material-ui/core/Card"
 import CardHeader from "@material-ui/core/CardHeader"
 import CardText from "@material-ui/core/CardContent"
-import Divider from "material-ui/Divider"
+import Divider from "@material-ui/core/Divider"
 
 export class LearnPage extends React.Component {
 
