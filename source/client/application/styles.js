@@ -1,6 +1,9 @@
+import lightBlue500 from "@material-ui/core/colors/lightBlue"
+
 export const cardTextStyle = {
     padding: "40px",
-    wordWrap: "break-word"
+    wordWrap: "break-word",
+    fontSize: 18
 }
 
 export const cardContainerStyle = {
@@ -15,7 +18,8 @@ export const containerDivStyle = {
 
 export const buttonStyle = {
     margin: "0 15px 30px",
-    width: "250px"
+    width: "250px",
+    // backgroundColor: { lightBlue500 }
 }
 
 export const innerButtonStyle = {

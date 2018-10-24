@@ -1,4 +1,5 @@
-import { lightBlue500, lightBlue900 } from "material-ui/styles/colors"
+import lightBlue500 from "@material-ui/core/colors/lightBlue"
+import lightBlue900 from "@material-ui/core/colors/lightBlue"
 
 export const tabItemContainerStyle = (items) => {
     return {
