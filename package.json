@@ -12,6 +12,7 @@
     "prune": "lerna exec -- npm prune -- production",
     "combine": "mv source/client/dist/ source/server/dist/public && mv source/server/dist ./dist",
     "postcombine": "mv source/server/node_modules ./node_modules && mv source/client/node_modules ./dist/public/node_modules",
+    "postinstall": "lerna bootstrap",
     "compile": "npm run clean && npm run bootstrap && npm run build && npm run prune && npm run combine",
     "start": "NODE_ENV=production PORT=8080 node ./dist/server.js"
   },
