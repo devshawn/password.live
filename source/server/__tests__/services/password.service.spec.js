@@ -6,8 +6,8 @@ describe('PasswordService', () => {
     describe('PasswordService.simple', () => {
         const password = passwordService.simple();
 
-        it('it returns a password that is 16 characters long', () => {
-            expect(password).toHaveLength(16);
+        it('it returns a password that is 10 characters long', () => {
+            expect(password).toHaveLength(10);
         });
 
         it('it returns a password that uses only lowercase letters', () => {
