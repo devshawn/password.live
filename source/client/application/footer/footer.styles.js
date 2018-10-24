@@ -1,8 +1,8 @@
-import { lightBlue100, lightBlue900 } from "@material-ui/core/colors"
+import lightBlue from "@material-ui/core/colors/lightBlue"
 
 export const footerStyle = {
     height: "28px",
-    background: lightBlue900,
+    background: lightBlue[900],
     color: "white",
     boxShadow: "rgba(0, 0, 0, 0.12) 0px -2px 6px, rgba(0, 0, 0, 0.12) 0px -2px 4px",
     padding: "12px 20px",
@@ -30,5 +30,5 @@ export const iconHoverOnStyle = {
 }
 
 export const iconPressedStyle = {
-    color: lightBlue100
+    color: lightBlue[100]
 }

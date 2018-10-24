@@ -16,7 +16,7 @@ export class PasswordBoxComponent extends React.Component {
         return (
             <div style={containerDivStyle}>
                 <Card
-                // containerStyle={cardContainerStyle}
+                    style={cardContainerStyle}
                 >
                     <CardText style={CardTextStyle}>
                         {password}
