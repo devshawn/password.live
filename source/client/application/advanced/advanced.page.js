@@ -37,19 +37,19 @@ export class AdvancedPage extends React.Component {
     }
 
     renderButtons() {
-        return <PasswordButtonsComponent passwordCategory={ PASSWORD_ADVANCED } generatePassword={ this.generatePassword }/>
+        return <PasswordButtonsComponent passwordCategory={PASSWORD_ADVANCED} generatePassword={this.generatePassword} />
     }
 
     render() {
         return (
             <div className="page">
-                <Col xs={ 12 } md={ 7 } push={ { md: 5 } }>
-                    <Visible xs sm>{ this.renderButtons() }</Visible>
-                    <PasswordBoxComponent passwordCategory={ PASSWORD_ADVANCED }/>
-                    <Hidden xs sm>{ this.renderButtons() }</Hidden>
+                <Col xs={12} md={7} push={{ md: 5 }}>
+                    <Visible xs sm>{this.renderButtons()}</Visible>
+                    <PasswordBoxComponent passwordCategory={PASSWORD_ADVANCED} />
+                    <Hidden xs sm>{this.renderButtons()}</Hidden>
                 </Col>
-                <Col xs={ 12 } md={ 5 } pull={ { md: 7 } }>
-                    <AdvancedFormComponent/>
+                <Col xs={12} md={5} pull={{ md: 7 }}>
+                    <AdvancedFormComponent />
                 </Col>
             </div>
         )

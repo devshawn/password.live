@@ -1,4 +1,4 @@
-import { lightBlue100, lightBlue900 } from "material-ui/styles/colors"
+import { lightBlue100, lightBlue900 } from "@material-ui/core/colors"
 
 export const footerStyle = {
     height: "28px",

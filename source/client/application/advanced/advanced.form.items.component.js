@@ -1,6 +1,8 @@
 import React from "react"
 import { connect } from "react-redux"
-import { Divider, Slider, Toggle } from "material-ui"
+import Divider from "@material-ui/core/Divider"
+import Slider from '@material-ui/lab/Slider'
+import ToggleButton from '@material-ui/lab/ToggleButton'
 import { dividerStyle, sliderStyle, toggleStyle } from "./advanced.styles"
 import { updatePasswordSettings } from "../password/password.actions"
 
@@ -42,20 +44,20 @@ export class AdvancedFormItemsComponent extends React.Component {
 
         return (
             <div>
-                Length: { settings.length }
-                <Slider value={ settings.length } onChange={ this.changeLength } min={ 5 } max={ 100 } step={ 1 } sliderStyle={ sliderStyle }/>
+                Length: {settings.length}
+                <Slider value={settings.length} onChange={this.changeLength} min={5} max={100} step={1} sliderStyle={sliderStyle} />
                 {
                     this.toggleList.map((toggle) => {
                         return (
-                            <div key={ toggle.property }>
-                                <Divider style={ dividerStyle }/>
-                                <Toggle
+                            <div key={toggle.property}>
+                                <Divider style={dividerStyle} />
+                                <ToggleButton
 
-                                    data-property={ toggle.property }
-                                    label={ toggle.label }
-                                    defaultToggled={ toggle.defaultToggled }
-                                    style={ toggleStyle }
-                                    onToggle={ this.changeToggle }
+                                    data-property={toggle.property}
+                                    label={toggle.label}
+                                    defaultToggled={toggle.defaultToggled}
+                                    style={toggleStyle}
+                                    onToggle={this.changeToggle}
                                 />
                             </div>
                         )
