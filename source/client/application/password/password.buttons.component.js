@@ -2,7 +2,7 @@ import React from "react"
 import copy from "copy-to-clipboard"
 import { connect } from "react-redux"
 import Button from "@material-ui/core/Button"
-import { buttonStyle, buttonLabelStyle, passwordButtonsComponentStyle } from "../styles"
+import { buttonStyle, buttonLabelStyle, passwordButtonsComponentStyle, copyPasswordButtonStyle } from "../styles"
 import { lightBlue500 } from "@material-ui/core/colors"
 import { sendNotification } from "../notification/notification.actions"
 import { getPasswordFromCategory } from "./password.helper"
@@ -30,25 +30,23 @@ export class PasswordButtonsComponent extends React.Component {
 
         return (
             <div style={passwordButtonsComponentStyle}>
-                <label style={buttonLabelStyle}>
-                    <Button onClick={generatePassword}
-                        color="primary"
-                        variant="contained"
-                        // backgroundColor={lightBlue500}
-                        // label="Generate Password"
-                        // labelStyle={buttonLabelStyle}
-                        style={buttonStyle}
-                    >
-                        Generate Password
+                <Button onClick={generatePassword}
+                    color="primary"
+                    variant="contained"
+                    // backgroundColor={lightBlue500}
+                    // label="Generate Password"
+                    // labelStyle={buttonLabelStyle}
+                    style={buttonStyle}
+                >
+                    Generate Password
                     </Button>
-                </label>
                 <Button onClick={this.copyPassword}
                     color="secondary"
                     variant="contained"
                     // backgroundColor="#F18A00"
                     // label="Copy Password"
                     // labelStyle={buttonLabelStyle}
-                    style={buttonStyle}
+                    style={copyPasswordButtonStyle}
                 >
                     Copy Password
                 </Button>

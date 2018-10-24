@@ -17,12 +17,12 @@ export class PasswordBoxComponent extends React.Component {
 
         let CardTextStyle = cardTextStyle;
 
-        // CardTextStyle.fontSize = `${48 - Math.trunc(Math.log(Math.round(password.length / 10)) * 10)}px`
+        // cardTextStyle.fontSize = `${48 - Math.trunc(Math.log(Math.round(password.length / 10)) * 10)}px`
 
         return (
             <div style={containerDivStyle}>
                 <Card
-                // containerStyle={cardContainerStyle}
+                    style={cardContainerStyle}
                 >
                     <CardText style={CardTextStyle}>
                         {password}
