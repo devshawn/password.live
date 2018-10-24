@@ -1,5 +1,5 @@
 export const defaultPasswordSettings = {
-    length: 10,
+    length: 16,
     lowercase: true,
     uppercase: false,
     numbers: false,
