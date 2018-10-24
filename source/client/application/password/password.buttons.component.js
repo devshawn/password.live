@@ -1,9 +1,8 @@
 import React from "react"
 import copy from "copy-to-clipboard"
 import { connect } from "react-redux"
-import { RaisedButton } from "material-ui"
-import { buttonLabelStyle, buttonStyle, passwordButtonsComponentStyle } from "../styles"
-import { lightBlue500 } from "material-ui/styles/colors"
+import Button from "@material-ui/core/Button"
+import { buttonStyle, buttonLabelStyle, passwordButtonsComponentStyle } from "../styles"
 import { sendNotification } from "../notification/notification.actions"
 import { updatePasswordSettings } from "../settings/settings.actions"
 
