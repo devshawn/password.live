@@ -1,9 +1,9 @@
 import React from "react"
 import { withRouter } from "react-router-dom"
-import { AdvancedPage } from "../advanced/advanced.page"
 import { connect } from "react-redux"
 import Cookies from "js-cookie"
 import { updatePasswordSettings } from "../settings/settings.actions"
+import { PasswordInnerPage } from "./password.inner.page"
 
 @withRouter
 @connect(store => ({
@@ -21,6 +21,6 @@ export class PasswordPage extends React.Component {
     }
 
     render() {
-        return <AdvancedPage/>
+        return <PasswordInnerPage/>
     }
 }

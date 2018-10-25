@@ -1,20 +1,20 @@
 import React from "react"
 import { Col, Hidden, Visible } from "react-grid-system"
 import { connect } from "react-redux"
-import { AdvancedFormComponent } from "./advanced.form.component"
 import { PasswordBoxComponent } from "../password/password.box.component"
 import { PasswordButtonsComponent } from "../password/password.buttons.component"
 import { fetchPassword } from "../password/password.actions"
 import { validatePasswordSettings } from "../password/password.helper"
 import { sendNotification } from "../notification/notification.actions"
 import { withRouter } from "react-router-dom"
+import { SettingsCard } from "../settings/settings.card"
 
 @withRouter
 @connect((store) => ({
     password: store.passwordReducer.password,
     settings: store.settingsReducer.settings
 }))
-export class AdvancedPage extends React.Component {
+export class PasswordInnerPage extends React.Component {
 
     constructor(props) {
         super(props)
@@ -52,7 +52,7 @@ export class AdvancedPage extends React.Component {
                 {
                     settings.advanced && (
                         <Col xs={ 12 } md={ 5 } pull={ { md: 7 } }>
-                            <AdvancedFormComponent/>
+                            <SettingsCard/>
                         </Col>
                     )
                 }

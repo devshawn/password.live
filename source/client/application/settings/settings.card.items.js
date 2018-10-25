@@ -3,7 +3,7 @@ import copy from "copy-to-clipboard"
 import { connect } from "react-redux"
 import { Divider, RaisedButton, Slider, Toggle } from "material-ui"
 import { red600 } from "material-ui/styles/colors"
-import { dividerStyle, sliderStyle, toggleStyle } from "./advanced.styles"
+import { dividerStyle, sliderStyle, toggleStyle } from "./settings.styles"
 import { updatePasswordSettings } from "../settings/settings.actions"
 import { Col } from "react-grid-system"
 import { innerButtonLabelStyle, innerButtonStyle } from "../styles"
@@ -14,7 +14,7 @@ import { generateSettingsQueryString } from "../settings/settings.helper"
 @connect((store) => ({
     settings: store.settingsReducer.settings
 }))
-export class AdvancedFormItemsComponent extends React.Component {
+export class SettingsCardItems extends React.Component {
     constructor(props) {
         super(props)
         this.changeLength = this.changeLength.bind(this)
@@ -82,10 +82,10 @@ export class AdvancedFormItemsComponent extends React.Component {
                 }
                 <Divider style={ dividerStyle }/>
                 <div>
-                    <Col xs={ 12 } md={ 5 }>
+                    <Col xs={ 12 } xl={ 5 }>
                         <RaisedButton onClick={ this.resetSettings } backgroundColor={ red600 } labelStyle={ innerButtonLabelStyle } style={ innerButtonStyle } label="Reset"/>
                     </Col>
-                    <Col xs={ 12 } md={ 7 }>
+                    <Col xs={ 12 } xl={ 7 }>
                         <RaisedButton onClick={ this.copyShareURL } backgroundColor={ "#F18A00" } labelStyle={ innerButtonLabelStyle } style={ innerButtonStyle } label="Copy Settings URL"/>
                     </Col>
                 </div>

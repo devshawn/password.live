@@ -3,7 +3,7 @@ import { Card, CardText } from "material-ui/Card"
 import { cardContainerStyle } from "../styles"
 import { notFoundCardTextStyle } from "./error.styles"
 
-export class NotFoundPage extends React.Component {
+export class ErrorPage extends React.Component {
     render() {
         return (
             <Card containerStyle={ cardContainerStyle }>
