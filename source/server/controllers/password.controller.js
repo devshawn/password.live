@@ -10,7 +10,7 @@ export class PasswordController extends Router {
 
     get routes() {
         return {
-            "POST /password/generate": "generate"
+            "POST /api/v1/password": "generate"
         }
     }
 
