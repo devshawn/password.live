@@ -69,13 +69,13 @@ export class SettingsCardItems extends React.Component {
         return (
             <div>
                 Length: { settings.length }
-                <Slider value={ settings.length } onChange={ this.changeLength } min={ 5 } max={ 100 } step={ 1 } sliderStyle={ sliderStyle }/>
+                <Slider value={ settings.length } onChange={ this.changeLength } min={ 5 } max={ 100 } step={ 1 } sliderStyle={ sliderStyle } aria-label={ "Password Length Slider: " + settings.length + ". Increase or decrease length using arrow keys." }/>
                 {
                     this.generateToggleList().map((toggle) => {
                         return (
                             <div key={ toggle.property }>
                                 <Divider style={ dividerStyle }/>
-                                <Toggle data-property={ toggle.property } label={ toggle.label } toggled={ toggle.toggled } style={ toggleStyle } onToggle={ toggle.onToggle }/>
+                                <Toggle data-property={ toggle.property } label={ toggle.label } toggled={ toggle.toggled } style={ toggleStyle } onToggle={ toggle.onToggle } aria-label={ toggle.label }/>
                             </div>
                         )
                     })
