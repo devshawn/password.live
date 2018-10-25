@@ -2,8 +2,9 @@ import React from "react"
 import { connect } from "react-redux"
 import Divider from "@material-ui/core/Divider"
 import Slider from '@material-ui/lab/Slider'
-import ToggleButton from '@material-ui/lab/ToggleButton'
-import { dividerStyle, sliderStyle, toggleStyle } from "./advanced.styles"
+import Typography from "@material-ui/core/Typography"
+import Switch from '@material-ui/core/Switch';
+import { dividerStyle, sliderStyle, toggleStyle, switchStyle } from "./advanced.styles"
 import { updatePasswordSettings } from "../password/password.actions"
 
 @connect((store) => {
@@ -34,9 +35,8 @@ export class AdvancedFormItemsComponent extends React.Component {
     }
 
     changeToggle(event, value) {
-        const property = event.target.dataset.property
+        const property = event.target.value
         this.props.dispatch(updatePasswordSettings({ [property]: value }))
-
     }
 
     render() {
@@ -44,21 +44,29 @@ export class AdvancedFormItemsComponent extends React.Component {
 
         return (
             <div>
-                Length: {settings.length}
-                <Slider value={settings.length} onChange={this.changeLength} min={5} max={100} step={1} sliderStyle={sliderStyle} />
+                <Typography id="label" style={toggleStyle}>Length: {settings.length}</Typography>
+                <Slider
+                    value={settings.length}
+                    onChange={this.changeLength}
+                    min={5}
+                    max={100}
+                    step={1}
+                    style={sliderStyle}
+                />
                 {
                     this.toggleList.map((toggle) => {
                         return (
                             <div key={toggle.property}>
                                 <Divider style={dividerStyle} />
-                                <ToggleButton
-
-                                    data-property={toggle.property}
-                                    label={toggle.label}
-                                    defaultToggled={toggle.defaultToggled}
-                                    style={toggleStyle}
-                                    onToggle={this.changeToggle}
-                                />
+                                <Typography id="label">{toggle.label}</Typography>
+                                <Switch
+                                    id={toggle.property}
+                                    value={toggle.property}
+                                    defaultChecked={toggle.defaultToggled}
+                                    style={switchStyle}
+                                    onChange={this.changeToggle}
+                                >
+                                </Switch>
                             </div>
                         )
                     })

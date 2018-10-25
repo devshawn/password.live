@@ -5,7 +5,7 @@ export const tabItemContainerStyle = (items) => {
         background: lightBlue[900],
         margin: 0,
         height: "64px",
-        width: `${items.length * 150}px`
+        width: `${items.length * 150}px`,
     }
 }
 

@@ -11,12 +11,13 @@ import { FooterComponent } from "./footer/footer.component"
 export default class Application extends React.Component {
     render() {
         const { history } = this.props
+        console.log(this.props);
         return (
             <div id="main">
-                <NavigationComponent history={ history }/>
-                <RouterComponent/>
-                <NotificationComponent/>
-                <FooterComponent/>
+                <NavigationComponent history={history} />
+                <RouterComponent />
+                <NotificationComponent />
+                <FooterComponent />
             </div>
         )
     }

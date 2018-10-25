@@ -1,20 +1,20 @@
 import React from "react"
 import { Avatar, Icon } from "@material-ui/core"
-import { Card, CardHeader, CardText } from "@material-ui/core/Card"
+import Card from "@material-ui/core/Card"
+import CardHeader from "@material-ui/core/CardHeader"
+import CardContent from "@material-ui/core/CardContent"
 import lightBlue from "@material-ui/core/colors/lightBlue"
 import { shieldIconStyle } from "./advanced.styles"
 import { AdvancedFormItemsComponent } from "./advanced.form.items.component"
 
 export class AdvancedFormComponent extends React.Component {
     render() {
-        const styles = {
-            avatar: {
-                backgroundColor: lightBlue[500]
-            }
+        const avatarStyle = {
+            backgroundColor: lightBlue[500]
         }
 
         const avatar = <Avatar
-            className={styles.avatar}
+            style={avatarStyle}
         // backgroundColor={lightBlue500} 
         // icon={
 
@@ -23,7 +23,7 @@ export class AdvancedFormComponent extends React.Component {
             <Icon
                 style={shieldIconStyle}
                 className="fa fa-shield"
-            />
+            ></Icon>
         </Avatar>
 
         return (
@@ -33,9 +33,9 @@ export class AdvancedFormComponent extends React.Component {
                     subtitle="Customize your generated password"
                     avatar={avatar}
                 />
-                <CardText>
+                <CardContent>
                     <AdvancedFormItemsComponent />
-                </CardText>
+                </CardContent>
             </Card>
         )
     }
