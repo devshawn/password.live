@@ -1,20 +1,20 @@
 import React from "react"
 import { Col, Hidden, Visible } from "react-grid-system"
 import { connect } from "react-redux"
-import { AdvancedFormComponent } from "./advanced.form.component"
 import { PasswordBoxComponent } from "../password/password.box.component"
 import { PasswordButtonsComponent } from "../password/password.buttons.component"
-import { getAdvancedPassword } from "../password/password.actions"
+import { fetchPassword } from "../password/password.actions"
 import { validatePasswordSettings } from "../password/password.helper"
 import { sendNotification } from "../notification/notification.actions"
-import { PASSWORD_ADVANCED } from "../password/password.categories"
+import { withRouter } from "react-router-dom"
+import { SettingsCard } from "../settings/settings.card"
 
-@connect((store) => {
-    return {
-        reducerState: store.passwordReducer
-    }
-})
-export class AdvancedPage extends React.Component {
+@withRouter
+@connect((store) => ({
+    password: store.passwordReducer.password,
+    settings: store.settingsReducer.settings
+}))
+export class PasswordInnerPage extends React.Component {
 
     constructor(props) {
         super(props)
@@ -23,34 +23,39 @@ export class AdvancedPage extends React.Component {
     }
 
     componentDidMount() {
-        const { passwordAdvanced } = this.props.reducerState
-        if (passwordAdvanced === "") this.generatePassword()
+        const { password } = this.props
+        if (password === "") this.generatePassword()
     }
 
     generatePassword() {
-        const { settings } = this.props.reducerState
+        const { settings } = this.props
         if (validatePasswordSettings(settings)) {
-            this.props.dispatch(getAdvancedPassword(settings))
+            this.props.dispatch(fetchPassword(settings, false))
         } else {
             this.props.dispatch(sendNotification("Oops! You must have at least one setting turned on."))
         }
     }
 
     renderButtons() {
-        return <PasswordButtonsComponent passwordCategory={ PASSWORD_ADVANCED } generatePassword={ this.generatePassword }/>
+        return <PasswordButtonsComponent generatePassword={ this.generatePassword }/>
     }
 
     render() {
+        const { settings } = this.props
         return (
             <div className="page">
-                <Col xs={ 12 } md={ 7 } push={ { md: 5 } }>
+                <Col xs={ 12 } md={ settings.advanced ? 7 : 8 } push={ { md: settings.advanced ? 5 : 2 } }>
                     <Visible xs sm>{ this.renderButtons() }</Visible>
-                    <PasswordBoxComponent passwordCategory={ PASSWORD_ADVANCED }/>
+                    <PasswordBoxComponent/>
                     <Hidden xs sm>{ this.renderButtons() }</Hidden>
                 </Col>
-                <Col xs={ 12 } md={ 5 } pull={ { md: 7 } }>
-                    <AdvancedFormComponent/>
-                </Col>
+                {
+                    settings.advanced && (
+                        <Col xs={ 12 } md={ 5 } pull={ { md: 7 } }>
+                            <SettingsCard/>
+                        </Col>
+                    )
+                }
             </div>
         )
     }

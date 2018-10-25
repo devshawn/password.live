@@ -18,7 +18,7 @@ export function notificationReducer(state = initialState, action) {
             return updatedState
 
         default:
-            return updatedState
+            return state
     }
 }
 

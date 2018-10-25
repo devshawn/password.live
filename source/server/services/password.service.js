@@ -3,10 +3,6 @@ import { defaultPasswordSettings } from "../constants/password.constants"
 
 export class PasswordService {
 
-    simple() {
-        return generatePassword()
-    }
-
     // TODO: Add API validation and error pages
     generate(body) {
         const options = Object.assign({}, defaultPasswordSettings, body)

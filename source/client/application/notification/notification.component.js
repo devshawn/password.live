@@ -4,18 +4,13 @@ import { connect } from "react-redux"
 import { removeNotification } from "./notification.actions"
 import { barStyleFactory } from "./notification.styles"
 
-@connect((store) => {
-    return {
-        notificationReducerState: store.notificationReducer
-    }
-})
+@connect((store) => ({
+    notifications: store.notificationReducer.notifications
+}))
 export class NotificationComponent extends React.Component {
-    constructor(props) {
-        super(props)
-    }
 
     render() {
-        const { notifications } = this.props.notificationReducerState
+        const { notifications } = this.props
 
         return (
             <div>
