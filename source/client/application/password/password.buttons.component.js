@@ -2,7 +2,7 @@ import React from "react"
 import copy from "copy-to-clipboard"
 import { connect } from "react-redux"
 import Button from "@material-ui/core/Button"
-import { buttonStyle, buttonLabelStyle, passwordButtonsComponentStyle } from "../styles"
+import { buttonStyle, buttonLabelStyle, passwordButtonsComponentStyle, copyPasswordButtonStyle } from "../styles"
 import { sendNotification } from "../notification/notification.actions"
 import { updatePasswordSettings } from "../settings/settings.actions"
 
@@ -32,28 +32,22 @@ export class PasswordButtonsComponent extends React.Component {
     render() {
         const { generatePassword } = this.props
 
-        return [
-            <div style={passwordButtonsComponentStyle} key={1}>
-                <RaisedButton onClick={generatePassword}
-                    backgroundColor={lightBlue500}
-                    label="Generate Password"
-                    labelStyle={buttonLabelStyle}
+        return (
+            <div style={passwordButtonsComponentStyle}>
+                <Button onClick={generatePassword}
+                    color="primary"
+                    variant="contained"
                     style={buttonStyle}
-                />
-                <RaisedButton onClick={this.copyPassword}
-                    backgroundColor="#F18A00"
-                    label="Copy Password"
-                    labelStyle={buttonLabelStyle}
-                    style={buttonStyle}
-                />
-            </div>,
-            <div style={{ textAlign: "center" }} key={2}>
-                <RaisedButton onClick={this.toggleSettings}
-                    backgroundColor="#757575"
-                    label="Toggle Settings"
-                    labelStyle={buttonLabelStyle}
-                    style={buttonStyle}
-                />
+                >
+                    <label style={buttonLabelStyle}>Generate Password</label>
+                </Button>
+                <Button onClick={this.copyPassword}
+                    color="secondary"
+                    variant="contained"
+                    style={copyPasswordButtonStyle}
+                >
+                    <label style={buttonLabelStyle}>Copy Password</label>
+                </Button>
             </div>
         )
     }
