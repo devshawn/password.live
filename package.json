@@ -17,7 +17,12 @@
     "start": "NODE_ENV=production PORT=8080 node ./dist/server.js"
   },
   "devDependencies": {
+    "eslint": "^5.7.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
     "lerna": "^3.4.3",
     "rimraf": "^2.6.2"
+  },
+  "dependencies": {
+    "react-a11y": "^1.0.1"
   }
 }
