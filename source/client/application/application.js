@@ -12,12 +12,13 @@ import { hot } from "react-hot-loader"
 class Application extends React.Component {
     render() {
         const { history } = this.props
+        console.log(this.props);
         return (
             <div id="main">
-                <NavigationComponent history={history}/>
-                <RouterComponent/>
-                <NotificationComponent/>
-                <FooterComponent/>
+                <NavigationComponent history={history} />
+                <RouterComponent />
+                <NotificationComponent />
+                <FooterComponent />
             </div>
         )
     }

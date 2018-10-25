@@ -3,6 +3,9 @@ import AppBar from "@material-ui/core/AppBar"
 import Icon from "@material-ui/core/Icon"
 import Tab from "@material-ui/core/Tab"
 import Tabs from "@material-ui/core/Tabs"
+import Toolbar from "@material-ui/core/Toolbar"
+import Typography from "@material-ui/core/Typography"
+import lightBlue from "@material-ui/core/colors/lightBlue"
 import { appBarStyle, appBarTitleStyle, iconStyle, inkBarStyle, tabItemContainerStyle, tabItemStyle } from "./navigation.styles"
 
 const tabItemContainerStyles = tabItemContainerStyle(2)
@@ -15,6 +18,7 @@ export class NavigationComponent extends React.Component {
     }
 
     handleNavigation(value) {
+        console.log(value);
         this.props.history.push(value)
         this.setState({ value: value })
     }
@@ -23,24 +27,32 @@ export class NavigationComponent extends React.Component {
         const { value } = this.state
 
         return (
-            <AppBar
-                title="Password Generator"
-                // titleStyle={appBarTitleStyle}
-                style={appBarStyle}
+            <AppBar position="static" style={appBarStyle}
+            // title="Password Generator"
+            // titleStyle={appBarTitleStyle}
+            // style={appBarStyle}
             // iconElementLeft={
             // <Icon style={iconStyle} className="fa fa-user-secret" />
             // }
             >
-                <Tabs
-                    value={value}
-                    onChange={this.handleNavigation}
-                // tabItemContainerStyle={tabItemContainerStyles} 
-                // inkBarStyle={inkBarStyle}
-                >
-                    {
-                        routes.map((route) => <Tab key={route.path} label={route.label} value={route.path} style={tabItemStyle} />)
-                    }
-                </Tabs>
+                <Toolbar>
+                    <Icon style={iconStyle} className="fa fa-user-secret"></Icon>
+                    <Typography variant="h6" style={appBarTitleStyle} color="inherit">
+                        Password Generator
+                    </Typography>
+                    <Tabs
+                        fullWidth
+                        value={value}
+                        onChange={this.handleNavigation}
+                        style={tabItemContainerStyles}
+                        indicatorColor="primary"
+                    // inkBarStyle={inkBarStyle}
+                    >
+                        {
+                            routes.map((route) => <Tab key={route.path} label={route.label} value={route.path} style={tabItemStyle} />)
+                        }
+                    </Tabs>
+                </Toolbar>
             </AppBar>
         )
     }
