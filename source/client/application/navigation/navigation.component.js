@@ -23,7 +23,7 @@ export class NavigationComponent extends React.Component {
         const { value } = this.state
 
         return (
-            <AppBar title="Password Generator" titleStyle={ appBarTitleStyle } style={ appBarStyle } iconElementLeft={ <FontIcon style={ iconStyle } className="fa fa-user-secret"/> }>
+            <AppBar title="Password Generator" titleStyle={ appBarTitleStyle } style={ appBarStyle } iconElementLeft={ <FontIcon style={ iconStyle } className="fa fa-user-secret" aria-hidden="true"/> }>
                 <Tabs value={ value } onChange={ this.handleNavigation } tabItemContainerStyle={ tabItemContainerStyles } inkBarStyle={ inkBarStyle }>
                     {
                         routes.map((route) => <Tab key={ route.path } label={ route.label } value={ route.path } style={ tabItemStyle }/>)
