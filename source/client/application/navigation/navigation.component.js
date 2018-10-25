@@ -3,6 +3,9 @@ import AppBar from "@material-ui/core/AppBar"
 import Icon from "@material-ui/core/Icon"
 import Tab from "@material-ui/core/Tab"
 import Tabs from "@material-ui/core/Tabs"
+import Toolbar from "@material-ui/core/Toolbar"
+import Typography from "@material-ui/core/Typography"
+import lightBlue from "@material-ui/core/colors/lightBlue"
 import { appBarStyle, appBarTitleStyle, iconStyle, inkBarStyle, tabItemContainerStyle, tabItemStyle } from "./navigation.styles"
 
 const tabItemContainerStyles = tabItemContainerStyle(2)
@@ -15,6 +18,7 @@ export class NavigationComponent extends React.Component {
     }
 
     handleNavigation(value) {
+        console.log(value);
         this.props.history.push(value)
         this.setState({ value: value })
     }
