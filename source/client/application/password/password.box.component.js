@@ -15,9 +15,9 @@ export class PasswordBoxComponent extends React.Component {
     render() {
         const password = getPasswordFromCategory(this.props.passwordCategory, this.props.reducerState)
 
-        let CardTextStyle = cardTextStyle;
+        let CardTextStyle = Object.assign({}, cardTextStyle);
 
-        // cardTextStyle.fontSize = `${48 - Math.trunc(Math.log(Math.round(password.length / 10)) * 10)}px`
+        CardTextStyle.fontSize = `${48 - Math.trunc(Math.log(Math.round(password.length / 10)) * 10)}px`
 
         return (
             <div style={containerDivStyle}>
