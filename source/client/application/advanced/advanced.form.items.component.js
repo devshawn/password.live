@@ -43,7 +43,7 @@ export class AdvancedFormItemsComponent extends React.Component {
         return (
             <div>
                 Length: { settings.length }
-                <Slider value={ settings.length } onChange={ this.changeLength } aria-labelledby={ "Password Length: " + settings.length + ". Increase or decrease length using arrow keys."} min={ 5 } max={ 100 } step={ 1 } sliderStyle={ sliderStyle }/>
+                <Slider value={ settings.length } onChange={ this.changeLength } aria-labelledby={ "Password Length Slider: " + settings.length + ". Increase or decrease length using arrow keys."} min={ 5 } max={ 100 } step={ 1 } sliderStyle={ sliderStyle }/>
                 {
                     this.toggleList.map((toggle) => {
                         return (
