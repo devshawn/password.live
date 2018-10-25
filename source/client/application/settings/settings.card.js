@@ -6,7 +6,7 @@ import { SettingsCardItems } from "./settings.card.items"
 
 export class SettingsCard extends React.Component {
     render() {
-        const avatar = <Avatar backgroundColor={ lightBlue500 } icon={ <FontIcon style={ shieldIconStyle } className="fa fa-shield"/> }/>
+        const avatar = <Avatar backgroundColor={ lightBlue500 } icon={ <FontIcon style={ shieldIconStyle } className="fa fa-shield" aria-hidden="true"/> }/>
 
         return (
             <Card>
