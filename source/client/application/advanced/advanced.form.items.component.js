@@ -56,7 +56,7 @@ export class AdvancedFormItemsComponent extends React.Component {
                                     defaultToggled={ toggle.defaultToggled }
                                     style={ toggleStyle }
                                     onToggle={ this.changeToggle }
-                                    aria-labelledby={ toggle.label }
+                                    aria-label={ toggle.label }
                                 />
                             </div>
                         )
