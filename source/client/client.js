@@ -12,7 +12,7 @@ import configureStore from "./application/store"
 import createHistory from "history/createBrowserHistory"
 
 const store = configureStore()
-const history = createHistory()
+export const history = createHistory()
 
 const render = Component => {
     ReactDOM.render(

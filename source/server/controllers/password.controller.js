@@ -10,14 +10,8 @@ export class PasswordController extends Router {
 
     get routes() {
         return {
-            "GET /password/simple": "simple",
             "POST /password/generate": "generate"
         }
-    }
-
-    simple(request, response) {
-        const password = this.passwordService.simple()
-        response.json({ password })
     }
 
     generate(request, response) {

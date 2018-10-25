@@ -10,11 +10,7 @@ export class AdvancedFormComponent extends React.Component {
 
         return (
             <Card>
-                <CardHeader
-                    title="Password Settings"
-                    subtitle="Customize your generated password"
-                    avatar={ avatar }
-                />
+                <CardHeader title="Password Settings" subtitle="Customize your generated password" avatar={ avatar }/>
                 <CardText>
                     <AdvancedFormItemsComponent/>
                 </CardText>

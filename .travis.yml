@@ -12,7 +12,6 @@ node_js:
 install:
   - npm install -g lerna
   - npm install
-  - npm run bootstrap
 script:
   - npm run test
   - npm run compile

@@ -18,8 +18,18 @@ export const buttonStyle = {
     width: "250px"
 }
 
+export const innerButtonStyle = {
+    margin: "10px 0 5px",
+    width: "100%"
+}
+
 export const buttonLabelStyle = {
     fontSize: 18,
+    color: "white"
+}
+
+export const innerButtonLabelStyle = {
+    fontSize: 16,
     color: "white"
 }
 
