@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from 'react-router-dom';
 import AppBar from "@material-ui/core/AppBar"
 import Icon from "@material-ui/core/Icon"
 import Tab from "@material-ui/core/Tab"
@@ -17,8 +18,7 @@ export class NavigationComponent extends React.Component {
         this.handleNavigation = this.handleNavigation.bind(this)
     }
 
-    handleNavigation(value) {
-        console.log(value);
+    handleNavigation(event, value) {
         this.props.history.push(value)
         this.setState({ value: value })
     }
@@ -27,33 +27,32 @@ export class NavigationComponent extends React.Component {
         const { value } = this.state
 
         return (
-            <AppBar position="static" style={appBarStyle}
-            // title="Password Generator"
-            // titleStyle={appBarTitleStyle}
-            // style={appBarStyle}
-            // iconElementLeft={
-            // <Icon style={iconStyle} className="fa fa-user-secret" />
-            // }
-            >
-                <Toolbar>
-                    <Icon style={iconStyle} className="fa fa-user-secret"></Icon>
-                    <Typography variant="h6" style={appBarTitleStyle} color="inherit">
-                        Password Generator
-                    </Typography>
-                    <Tabs
-                        fullWidth
-                        value={value}
-                        onChange={this.handleNavigation}
-                        style={tabItemContainerStyles}
-                        indicatorColor="primary"
-                    // inkBarStyle={inkBarStyle}
-                    >
-                        {
-                            routes.map((route) => <Tab key={route.path} label={route.label} value={route.path} style={tabItemStyle} />)
-                        }
-                    </Tabs>
-                </Toolbar>
-            </AppBar>
+            < div>
+                <AppBar position="static" style={appBarStyle}>
+                    <Toolbar>
+                        <div style={{ display: "flex" }}>
+                            <Icon style={iconStyle} className="fa fa-user-secret" aria-hidden="true">
+                            </Icon>
+                            <Typography variant="h6" style={appBarTitleStyle} color="inherit">
+                                Password Generator
+                        </Typography>
+                        </div>
+                        <div style={{ marginLeft: "auto" }}>
+                            <Tabs
+                                fullWidth
+                                value={value}
+                                onChange={this.handleNavigation}
+                                style={tabItemContainerStyles}
+                                indicatorColor="primary"
+                            >
+                                {
+                                    routes.map((route) => <Tab key={route.label} label={route.label} value={route.path} component={Link} to={route.path} style={tabItemStyle} onClick={event => event.preventDefault()} />)
+                                }
+                            </Tabs>
+                        </div>
+                    </Toolbar>
+                </AppBar>
+            </div >
         )
     }
 }
