@@ -3,13 +3,10 @@ import { connect } from "react-redux"
 import Card from "@material-ui/core/Card"
 import CardText from "@material-ui/core/Card"
 import { cardContainerStyle, cardTextStyle, containerDivStyle } from "../styles"
-import { getPasswordFromCategory } from "./password.helper"
 
-@connect((store) => {
-    return {
-        reducerState: store.passwordReducer
-    }
-})
+@connect((store) => ({
+    password: store.passwordReducer.password
+}))
 export class PasswordBoxComponent extends React.Component {
 
     render() {
@@ -18,6 +15,8 @@ export class PasswordBoxComponent extends React.Component {
         let CardTextStyle = Object.assign({}, cardTextStyle);
 
         CardTextStyle.fontSize = `${48 - Math.trunc(Math.log(Math.round(password.length / 10)) * 10)}px`
+        // const { password } = this.props
+        // cardTextStyle.fontSize = `${48 - Math.trunc(Math.log(Math.round(password.length / 10)) * 10)}px`
 
         return (
             <div style={containerDivStyle}>

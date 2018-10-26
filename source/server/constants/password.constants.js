@@ -1,9 +1,11 @@
 export const defaultPasswordSettings = {
-    length: 10,
+    length: 16,
     lowercase: true,
     uppercase: false,
     numbers: false,
-    symbols: false
+    symbols: false,
+    advanced: false,
+    remember: false
 }
 
 export const UPPERCASE_REGEX = /([A-Z])/g

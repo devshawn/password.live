@@ -4,24 +4,29 @@ import { connect } from "react-redux"
 import Button from "@material-ui/core/Button"
 import { buttonStyle, buttonLabelStyle, passwordButtonsComponentStyle, copyPasswordButtonStyle } from "../styles"
 import { sendNotification } from "../notification/notification.actions"
-import { getPasswordFromCategory } from "./password.helper"
+import { updatePasswordSettings } from "../settings/settings.actions"
 
-@connect((store) => {
-    return {
-        reducerState: store.passwordReducer
-    }
-})
+@connect((store) => ({
+    password: store.passwordReducer.password,
+    settings: store.settingsReducer.settings
+}))
 export class PasswordButtonsComponent extends React.Component {
 
     constructor(props) {
         super(props)
         this.copyPassword = this.copyPassword.bind(this)
+        this.toggleSettings = this.toggleSettings.bind(this)
     }
 
     copyPassword() {
-        const password = getPasswordFromCategory(this.props.passwordCategory, this.props.reducerState)
+        const { password } = this.props
         copy(password)
         this.props.dispatch(sendNotification("Password copied to clipboard!"))
+    }
+
+    toggleSettings() {
+        const { settings } = this.props
+        this.props.dispatch(updatePasswordSettings({ advanced: !settings.advanced }))
     }
 
     render() {
@@ -43,6 +48,30 @@ export class PasswordButtonsComponent extends React.Component {
                 >
                     <label style={buttonLabelStyle}>Copy Password</label>
                 </Button>
+                {/* return [
+            <div style={ passwordButtonsComponentStyle } key={ 1 }>
+                <RaisedButton onClick={ generatePassword }
+                              backgroundColor={ lightBlue500 }
+                              label="Generate Password"
+                              labelStyle={ buttonLabelStyle }
+                              style={ buttonStyle }
+                />
+                <RaisedButton onClick={ this.copyPassword }
+                              backgroundColor="#F18A00"
+                              label="Copy Password"
+                              labelStyle={ buttonLabelStyle }
+                              style={ buttonStyle }
+                />
+            </div>,
+            <div style={ { textAlign: "center" } } key={ 2 }>
+                <RaisedButton onClick={ this.toggleSettings }
+                              backgroundColor="#757575"
+                              label="Toggle Settings"
+                              labelStyle={ buttonLabelStyle }
+                              style={ buttonStyle }
+                />
+            </div>
+        ] */}
             </div>
         )
     }

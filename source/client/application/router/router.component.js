@@ -1,7 +1,9 @@
 import React from "react"
 import { Route, Switch } from "react-router-dom"
-import { routes } from "./routes"
-import { NotFoundPage } from "../error/not.found.page"
+import { SettingsSharePage } from "../settings/settings.share.page"
+import { PasswordPage } from "../password/password.page"
+import { LearnPage } from "../learn/learn.page"
+import { ErrorPage } from "../error/error.page"
 
 export class RouterComponent extends React.Component {
     render() {
@@ -9,12 +11,10 @@ export class RouterComponent extends React.Component {
             <div className="wrapper">
                 <div className="center-vertically">
                     <Switch>
-                        {
-                            routes.map((route) => {
-                                return <Route key={route.path} exact path={route.path} component={route.page} />
-                            })
-                        }
-                        <Route path="*" component={NotFoundPage} />
+                        <Route key={"/"} exact path={"/"} component={PasswordPage} />
+                        <Route key={"/s/*"} exact path={"/s/*"} component={SettingsSharePage} />
+                        <Route key={"/learn"} exact path={"/learn"} component={LearnPage} />
+                        <Route path="*" component={ErrorPage} />
                     </Switch>
                 </div>
             </div>

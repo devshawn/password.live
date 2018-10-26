@@ -12,7 +12,7 @@ import createHistory from "history/createBrowserHistory"
 import lightBlue from "@material-ui/core/colors/lightBlue";
 
 const store = configureStore()
-const history = createHistory()
+export const history = createHistory()
 
 const render = Component => {
     ReactDOM.render(
