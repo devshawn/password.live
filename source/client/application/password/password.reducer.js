@@ -4,12 +4,12 @@ const initialState = {
     password: ""
 }
 
-export const passwordReducer = (state = initialState, { type, payload }) => {
+export function passwordReducer(state = initialState, action) {
 
-    switch (type) {
+    switch (action.type) {
 
         case PASSWORD_FETCH_SUCCESS:
-            return { ...state, ...payload }
+            return Object.assign({}, state, action.payload)
 
         default:
             return state
