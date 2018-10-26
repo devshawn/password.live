@@ -11,10 +11,10 @@ export class RouterComponent extends React.Component {
                     <Switch>
                         {
                             routes.map((route) => {
-                                return <Route key={ route.path } exact path={ route.path } component={ route.page }/>
+                                return <Route key={route.path} exact path={route.path} component={route.page} />
                             })
                         }
-                        <Route path="*" component={ NotFoundPage }/>
+                        <Route path="*" component={NotFoundPage} />
                     </Switch>
                 </div>
             </div>

@@ -15,10 +15,6 @@ export class AdvancedFormComponent extends React.Component {
 
         const avatar = <Avatar
             style={avatarStyle}
-        // backgroundColor={lightBlue500} 
-        // icon={
-
-        // }
         >
             <Icon
                 style={shieldIconStyle}
@@ -30,7 +26,7 @@ export class AdvancedFormComponent extends React.Component {
             <Card>
                 <CardHeader
                     title="Password Settings"
-                    subtitle="Customize your generated password"
+                    subheader="Customize your generated password"
                     avatar={avatar}
                 />
                 <CardContent>

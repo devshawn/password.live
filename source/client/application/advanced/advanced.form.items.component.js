@@ -3,8 +3,10 @@ import { connect } from "react-redux"
 import Divider from "@material-ui/core/Divider"
 import Slider from '@material-ui/lab/Slider'
 import Typography from "@material-ui/core/Typography"
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
-import { dividerStyle, sliderStyle, toggleStyle, switchStyle } from "./advanced.styles"
+import { dividerStyle, sliderStyle, toggleStyle, switchStyle, settingsStyle } from "./advanced.styles"
 import { updatePasswordSettings } from "../password/password.actions"
 
 @connect((store) => {
@@ -12,6 +14,7 @@ import { updatePasswordSettings } from "../password/password.actions"
         reducerState: store.passwordReducer
     }
 })
+
 export class AdvancedFormItemsComponent extends React.Component {
     constructor(props) {
         super(props)
@@ -58,15 +61,19 @@ export class AdvancedFormItemsComponent extends React.Component {
                         return (
                             <div key={toggle.property}>
                                 <Divider style={dividerStyle} />
-                                <Typography id="label">{toggle.label}</Typography>
-                                <Switch
-                                    id={toggle.property}
-                                    value={toggle.property}
-                                    defaultChecked={toggle.defaultToggled}
-                                    style={switchStyle}
-                                    onChange={this.changeToggle}
-                                >
-                                </Switch>
+                                <div key={toggle.property} style={settingsStyle}>
+                                    <Typography id="label" align="left">
+                                        {toggle.label}
+                                        <Switch
+                                            id={toggle.property}
+                                            value={toggle.property}
+                                            defaultChecked={toggle.defaultToggled}
+                                            onChange={this.changeToggle}
+                                            color="primary"
+                                        >
+                                        </Switch>
+                                    </Typography>
+                                </div>
                             </div>
                         )
                     })
