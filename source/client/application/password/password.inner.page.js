@@ -8,7 +8,6 @@ import { validatePasswordSettings } from "../password/password.helper"
 import { sendNotification } from "../notification/notification.actions"
 import { withRouter } from "react-router-dom"
 import { SettingsCard } from "../settings/settings.card"
-import { CSSTransition } from "react-transition-group"
 
 @withRouter
 @connect((store) => ({
@@ -42,8 +41,7 @@ export class PasswordInnerPage extends React.Component {
     }
 
     render() {
-        const { settings: { advanced } } = this.props
-
+        const { settings } = this.props
         return (
             <div className="page">
                 <Col xs={12} md={settings.advanced ? 7 : 8} push={{ md: settings.advanced ? 5 : 2 }}>
@@ -59,7 +57,6 @@ export class PasswordInnerPage extends React.Component {
                     )
                 }
             </div>
-
         )
     }
 }
