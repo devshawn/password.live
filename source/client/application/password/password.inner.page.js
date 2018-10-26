@@ -1,5 +1,5 @@
 import React from "react"
-import { Col, Hidden, Visible } from "react-grid-system"
+import { Hidden, Visible } from "react-grid-system"
 import { connect } from "react-redux"
 import { PasswordBoxComponent } from "../password/password.box.component"
 import { PasswordButtonsComponent } from "../password/password.buttons.component"
@@ -8,6 +8,7 @@ import { validatePasswordSettings } from "../password/password.helper"
 import { sendNotification } from "../notification/notification.actions"
 import { withRouter } from "react-router-dom"
 import { SettingsCard } from "../settings/settings.card"
+import { CSSTransition } from "react-transition-group"
 
 @withRouter
 @connect((store) => ({
@@ -41,22 +42,22 @@ export class PasswordInnerPage extends React.Component {
     }
 
     render() {
-        const { settings } = this.props
+        const { settings: { advanced } } = this.props
+
         return (
-            <div className="page">
-                <Col xs={12} md={settings.advanced ? 7 : 8} push={{ md: settings.advanced ? 5 : 2 }}>
+            <div className={"page"}>
+                <div>
                     <Visible xs sm>{this.renderButtons()}</Visible>
                     <PasswordBoxComponent />
                     <Hidden xs sm>{this.renderButtons()}</Hidden>
-                </Col>
-                {
-                    settings.advanced && (
-                        <Col xs={12} md={5} pull={{ md: 7 }}>
-                            <SettingsCard />
-                        </Col>
-                    )
-                }
+                </div>
+                <CSSTransition classNames={"settings"} timeout={1000} in={advanced} unmountOnExit>
+                    <div className={"settings"}>
+                        <SettingsCard />
+                    </div>
+                </CSSTransition>
             </div>
+
         )
     }
 }

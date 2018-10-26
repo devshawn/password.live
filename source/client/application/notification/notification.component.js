@@ -15,7 +15,7 @@ export class NotificationComponent extends React.Component {
         return (
             <div>
                 <NotificationStack
-                    notifications={ notifications.toArray() }
+                    notifications={ notifications }
                     onDismiss={ notification => this.props.dispatch(removeNotification(notification.key)) }
                     barStyleFactory={ barStyleFactory }
                     activeBarStyleFactory={ barStyleFactory }
