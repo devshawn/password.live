@@ -4,7 +4,7 @@ const initialState = {
     notifications: []
 }
 
-export const notificationReducer = (state = initialState, { type, payload: { key, notification } }) => {
+export const notificationReducer = (state = initialState, { type, payload: { key, notification } = {} }) => {
 
     switch (type) {
         case SEND_NOTIFICATION:
