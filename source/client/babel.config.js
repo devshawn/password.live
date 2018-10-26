@@ -1,4 +1,4 @@
-{
+module.exports = {
   "env": {
     "test": {
       "presets": [
@@ -11,7 +11,7 @@
           "@babel/plugin-proposal-decorators",
           {
             "legacy": true
-          },
+          }
         ],
         "@babel/plugin-proposal-object-rest-spread"
       ]
