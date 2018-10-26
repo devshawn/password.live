@@ -18,6 +18,10 @@ describe("PasswordService", () => {
             it("it returns unique passwords", () => {
                 expect(password).not.toBe(passwordService.generate())
             })
+            it("it returns a passowrd that is on uppercase and 16 characters long", () => {
+                expect(/[A-Z]/.test(password)).toBe(true)
+                expect(password).toHaveLength(16)
+            })
         })
 
         describe("with body.uppercase = true", () => {
