@@ -27,12 +27,32 @@ export class NavigationComponent extends React.Component {
         const { value } = this.state
 
         return (
-            <AppBar title="Password Generator" titleStyle={appBarTitleStyle} style={appBarStyle} iconElementLeft={<FontIcon style={iconStyle} className="fa fa-user-secret" aria-hidden="true" />}>
-                <Tabs value={value} onChange={this.handleNavigation} tabItemContainerStyle={tabItemContainerStyles} inkBarStyle={inkBarStyle}>
-                    <Tab key={"/"} label={"Home"} value={"/"} style={tabItemStyle} />
-                    <Tab key={"/learn"} label={"Learn"} value={"/learn"} style={tabItemStyle} />
-                </Tabs>
-            </AppBar>
+            < div>
+                <AppBar position="static" style={appBarStyle}>
+                    <Toolbar>
+                        <div style={{ display: "flex" }}>
+                            <Icon style={iconStyle} className="fa fa-user-secret" aria-hidden="true">
+                            </Icon>
+                            <Typography variant="h6" style={appBarTitleStyle} color="inherit">
+                                Password Generator
+                        </Typography>
+                        </div>
+                        <div style={{ marginLeft: "auto" }}>
+                            <Tabs
+                                fullWidth
+                                value={value}
+                                onChange={this.handleNavigation}
+                                style={tabItemContainerStyles}
+                                indicatorColor="primary"
+                            >
+                                {
+                                    routes.map((route) => <Tab key={route.label} label={route.label} value={route.path} component={Link} to={route.path} style={tabItemStyle} onClick={event => event.preventDefault()} />)
+                                }
+                            </Tabs>
+                        </div>
+                    </Toolbar>
+                </AppBar>
+            </div >
         )
     }
 }
