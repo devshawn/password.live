@@ -45,6 +45,7 @@
     "font-awesome": "^4.7.0",
     "history": "^4.7.2",
     "immutable": "^3.8.2",
+    "jss-nested": "^6.0.1",
     "material-ui": "^0.20.2",
     "ptsans-npm-webfont": "^0.0.4",
     "query-string": "^6.2.0",

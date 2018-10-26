@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from 'react-router-dom';
 import AppBar from "@material-ui/core/AppBar"
 import Icon from "@material-ui/core/Icon"
 import Tab from "@material-ui/core/Tab"
@@ -17,8 +18,7 @@ export class NavigationComponent extends React.Component {
         this.handleNavigation = this.handleNavigation.bind(this)
     }
 
-    handleNavigation(value) {
-        console.log(value);
+    handleNavigation(event, value) {
         this.props.history.push(value)
         this.setState({ value: value })
     }

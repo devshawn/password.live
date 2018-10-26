@@ -18,7 +18,8 @@ export const appBarStyle = {
 }
 
 export const appBarTitleStyle = {
-    textOverflow: "hidden"
+    color: "white",
+    textOverflow: "hidden",
 }
 
 export const inkBarStyle = {
@@ -26,6 +27,6 @@ export const inkBarStyle = {
 }
 
 export const iconStyle = {
-    margin: "12px 15px 0 15px",
-    color: "white"
+    margin: "5px 15px 0 0",
+    color: "white",
 }
