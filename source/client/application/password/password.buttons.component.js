@@ -33,7 +33,7 @@ export class PasswordButtonsComponent extends React.Component {
         const { generatePassword } = this.props
 
         return (
-            <div style={passwordButtonsComponentStyle}>
+            <div style={passwordButtonsComponentStyle} key={1}>
                 <Button onClick={generatePassword}
                     color="primary"
                     variant="contained"
@@ -48,30 +48,14 @@ export class PasswordButtonsComponent extends React.Component {
                 >
                     <label style={buttonLabelStyle}>Copy Password</label>
                 </Button>
-                {/* return [
-            <div style={ passwordButtonsComponentStyle } key={ 1 }>
-                <RaisedButton onClick={ generatePassword }
-                              backgroundColor={ lightBlue500 }
-                              label="Generate Password"
-                              labelStyle={ buttonLabelStyle }
-                              style={ buttonStyle }
-                />
-                <RaisedButton onClick={ this.copyPassword }
-                              backgroundColor="#F18A00"
-                              label="Copy Password"
-                              labelStyle={ buttonLabelStyle }
-                              style={ buttonStyle }
-                />
-            </div>,
-            <div style={ { textAlign: "center" } } key={ 2 }>
-                <RaisedButton onClick={ this.toggleSettings }
-                              backgroundColor="#757575"
-                              label="Toggle Settings"
-                              labelStyle={ buttonLabelStyle }
-                              style={ buttonStyle }
-                />
-            </div>
-        ] */}
+                <div style={{ textAlign: "center" }} key={2}>
+                    <Button onClick={this.toggleSettings}
+                        variant="contained"
+                        style={toggleButtonStyle}
+                    >
+                        <label style={buttonLabelStyle}>Toggle Settings</label>
+                    </Button>
+                </div>
             </div>
         )
     }
