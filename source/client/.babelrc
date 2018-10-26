@@ -1,0 +1,48 @@
+{
+  "env": {
+    "test": {
+      "presets": [
+        "es2015",
+        "react"
+      ],
+      "plugins": [
+        "react-html-attrs",
+        "transform-decorators-legacy",
+        "transform-object-rest-spread"
+      ]
+    },
+    "development": {
+      "presets": [
+        [
+          "es2015",
+          {
+            "modules": false
+          }
+        ],
+        "react"
+      ],
+      "plugins": [
+        "react-hot-loader/babel",
+        "react-html-attrs",
+        "transform-decorators-legacy",
+        "transform-object-rest-spread"
+      ]
+    },
+    "production": {
+      "presets": [
+        [
+          "es2015",
+          {
+            "modules": false
+          }
+        ],
+        "react"
+      ],
+      "plugins": [
+        "react-html-attrs",
+        "transform-decorators-legacy",
+        "transform-object-rest-spread"
+      ]
+    }
+  }
+}
