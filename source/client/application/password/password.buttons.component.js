@@ -33,7 +33,7 @@ export class PasswordButtonsComponent extends React.Component {
         const { generatePassword } = this.props
 
         return (
-            <div style={passwordButtonsComponentStyle}>
+            <div style={passwordButtonsComponentStyle} key={1}>
                 <Button onClick={generatePassword}
                     color="primary"
                     variant="contained"
@@ -48,6 +48,14 @@ export class PasswordButtonsComponent extends React.Component {
                 >
                     <label style={buttonLabelStyle}>Copy Password</label>
                 </Button>
+                <div style={{ textAlign: "center" }} key={2}>
+                    <Button onClick={this.toggleSettings}
+                        variant="contained"
+                        style={toggleButtonStyle}
+                    >
+                        <label style={buttonLabelStyle}>Toggle Settings</label>
+                    </Button>
+                </div>
             </div>
         )
     }

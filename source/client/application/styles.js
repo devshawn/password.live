@@ -46,3 +46,7 @@ export const innerButtonLabelStyle = {
 export const passwordButtonsComponentStyle = {
     textAlign: "center"
 }
+
+export const toggleButtonStyle = {
+    backgroundColor: "#757575"
+}

@@ -68,28 +68,28 @@ export class SettingsCardItems extends React.Component {
         const { settings } = this.props
         return (
             <div>
-                Length: { settings.length }
-                <Slider value={ settings.length } onChange={ this.changeLength } min={ 5 } max={ 100 } step={ 1 } sliderStyle={ sliderStyle } aria-label={ "Password Length Slider: " + settings.length + ". Increase or decrease length using arrow keys." }/>
+                Length: {settings.length}
+                <Slider value={settings.length} onChange={this.changeLength} min={5} max={100} step={1} sliderStyle={sliderStyle} aria-label={"Password Length Slider: " + settings.length + ". Increase or decrease length using arrow keys."} />
                 {
                     this.generateToggleList().map((toggle) => {
                         return (
-                            <div key={ toggle.property }>
-                                <Divider style={ dividerStyle }/>
-                                <Toggle data-property={ toggle.property } label={ toggle.label } toggled={ toggle.toggled } style={ toggleStyle } onToggle={ toggle.onToggle } aria-label={ toggle.label }/>
+                            <div key={toggle.property}>
+                                <Divider style={dividerStyle} />
+                                <Toggle data-property={toggle.property} label={toggle.label} toggled={toggle.toggled} style={toggleStyle} onToggle={toggle.onToggle} aria-label={toggle.label} />
                             </div>
                         )
                     })
                 }
-                <Divider style={ dividerStyle }/>
+                <Divider style={dividerStyle} />
                 <div>
-                    <Col xs={ 12 } xl={ 5 }>
-                        <RaisedButton onClick={ this.resetSettings } backgroundColor={ red600 } labelStyle={ innerButtonLabelStyle } style={ innerButtonStyle } label="Reset"/>
+                    <Col xs={12} xl={5}>
+                        <RaisedButton onClick={this.resetSettings} backgroundColor={red600} labelStyle={innerButtonLabelStyle} style={innerButtonStyle} label="Reset" />
                     </Col>
-                    <Col xs={ 12 } xl={ 7 }>
-                        <RaisedButton onClick={ this.copyShareURL } backgroundColor={ "#F18A00" } labelStyle={ innerButtonLabelStyle } style={ innerButtonStyle } label="Copy Settings URL"/>
+                    <Col xs={12} xl={7}>
+                        <RaisedButton onClick={this.copyShareURL} backgroundColor={"#F18A00"} labelStyle={innerButtonLabelStyle} style={innerButtonStyle} label="Copy Settings URL" />
                     </Col>
                 </div>
-                <div style={ { clear: "both" } }/>
+                <div style={{ clear: "both" }} />
             </div>
         )
     }
