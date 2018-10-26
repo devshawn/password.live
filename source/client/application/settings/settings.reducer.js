@@ -6,12 +6,12 @@ const initialState = {
     settings: defaultPasswordSettings
 }
 
-export function settingsReducer(state = initialState, action) {
+export const settingsReducer = (state = initialState, { type, payload }) => {
 
-    switch (action.type) {
+    switch (type) {
 
         case SETTINGS_UPDATE:
-            const updatedState = Object.assign({}, state, { settings: { ...state.settings, ...action.payload } })
+            const updatedState = { ...state, settings: { ...state.settings, ...payload } }
             if (updatedState.settings.remember) {
                 Cookies.set("settings", updatedState.settings, { expires: 7 })
             } else {
