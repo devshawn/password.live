@@ -16,6 +16,6 @@ export class SettingsSharePage extends React.Component {
     }
 
     render() {
-        return <Redirect to={ "/" }/>
+        return <Redirect to={"/"} />
     }
 }
