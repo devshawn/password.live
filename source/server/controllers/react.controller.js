@@ -1,19 +1,21 @@
-import { Router } from "../config/router"
+import {
+  Router
+} from "../config/router"
 import path from "path"
-
+import "@babel/polyfill"
 export class ReactController extends Router {
 
-    get routes() {
-        return {
-            "GET *": "react"
-        }
+  get routes() {
+    return {
+      "GET *": "react"
     }
+  }
 
-    react(request, response) {
-        response.sendFile(path.join(__dirname, "..", "public/index.html"))
-    }
+  react(request, response) {
+    response.sendFile(path.join(__dirname, "..", "public/index.html"))
+  }
 
-    static create(server) {
-        return new ReactController(server)
-    }
+  static create(server) {
+    return new ReactController(server)
+  }
 }
