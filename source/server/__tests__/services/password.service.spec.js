@@ -57,11 +57,11 @@ describe("PasswordService", () => {
         })
 
         describe("with body.length = n between 1 and 100", () => {
-            const n = Math.ceil(Math.random() * 100)
-            const password = passwordService.generate({ length: n })
+            const length = Math.ceil(Math.random() * 100)
+            const password = passwordService.generate({ length })
 
             it("it returns a password with n characters", () => {
-                expect(password).toHaveLength(n)
+                expect(password).toHaveLength(length)
             })
         })
 
