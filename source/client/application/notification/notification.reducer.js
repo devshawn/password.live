@@ -1,19 +1,31 @@
 import { DISMISS_NOTIFICATION, SEND_NOTIFICATION } from "./notification.types"
+import { OrderedSet } from "immutable"
 
 const initialState = {
-    notifications: []
+    notifications: OrderedSet()
 }
 
-export const notificationReducer = (state = initialState, { type, payload: { key, notification } = {} }) => {
+export function notificationReducer(state = initialState, action) {
+    const updatedState = Object.assign({}, state)
 
-    switch (type) {
+    switch (action.type) {
         case SEND_NOTIFICATION:
-            return { ...state, notifications: [...state.notifications, notification] }
+            updatedState.notifications = addNotification(updatedState, action)
+            return updatedState
 
         case DISMISS_NOTIFICATION:
-            return { ...state, notifications: [...state.notifications.filter(n => n.key !== key)] }
+            updatedState.notifications = removeNotification(updatedState, action)
+            return updatedState
 
         default:
             return state
     }
+}
+
+function addNotification(updatedState, action) {
+    return updatedState.notifications.add(action.payload.notification)
+}
+
+function removeNotification(updatedState, action) {
+    return updatedState.notifications.filter(n => n.key !== action.payload.key)
 }

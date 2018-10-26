@@ -18,31 +18,13 @@ body {
     overflow-y: auto;
     flex-grow: 4;
     display: flex;
-    align-content: center;
+}
+
+.center-vertically {
+    margin: auto;
 }
 
 .page {
     margin: 0 auto;
     width: 80vw;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-around;
-}
-
-.settings-enter {
-    opacity: 0;
-}
-
-.settings-enter-active {
-    opacity: 1;
-    transition: all 1s ease-out;
-}
-
-.settings-exit {
-    opacity: 1;
-}
-
-.settings-exit-active {
-    opacity: 0;
-    transition: all 1s ease-in;
 }
