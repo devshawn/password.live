@@ -7,13 +7,14 @@ import "ptsans-npm-webfont"
 import { NotificationComponent } from "./notification/notification.component"
 import { RouterComponent } from "./router/router.component"
 import { FooterComponent } from "./footer/footer.component"
+import { hot } from "react-hot-loader"
 
-export default class Application extends React.Component {
+class Application extends React.Component {
     render() {
         const { history } = this.props
         return (
             <div id="main">
-                <NavigationComponent history={ history }/>
+                <NavigationComponent history={history}/>
                 <RouterComponent/>
                 <NotificationComponent/>
                 <FooterComponent/>
@@ -21,3 +22,5 @@ export default class Application extends React.Component {
         )
     }
 }
+
+export default hot(module)(Application)

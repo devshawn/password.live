@@ -8,9 +8,8 @@ module.exports = {
     devtool: "source-map",
     entry: {
         "app": [
-            "babel-polyfill",
-            "react-hot-loader/patch",
-            "./client"
+            "@babel/polyfill",
+            "./application/client"
         ]
     },
     output: {
@@ -20,7 +19,12 @@ module.exports = {
     },
     module: {
         rules: [
-            { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "babel-loader",
+                include: path.resolve(__dirname, "application")
+            },
             {
                 test: /\.css$/,
                 use: ["style-loader", "css-loader"]
