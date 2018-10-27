@@ -1,4 +1,4 @@
-import lightBlue from "@material-ui/core/colors/lightBlue"
+import { red, lightBlue } from "@material-ui/core/colors"
 
 export const cardTextStyle = {
     padding: "40px",
@@ -30,7 +30,8 @@ export const copyPasswordButtonStyle = {
 
 export const innerButtonStyle = {
     margin: "10px 0 5px",
-    width: "100%"
+    width: "100%",
+    backgroundColor: "#F18A00"
 }
 
 export const buttonLabelStyle = {
@@ -49,4 +50,10 @@ export const passwordButtonsComponentStyle = {
 
 export const toggleButtonStyle = {
     backgroundColor: "#757575"
+}
+
+export const resetButtonStyle = {
+    margin: "10px 0 5px",
+    width: "100%",
+    backgroundColor: red[500]
 }

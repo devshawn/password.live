@@ -1,7 +1,8 @@
 import lightBlue from "@material-ui/core/colors/lightBlue"
 
 export const shieldIconStyle = {
-    paddingLeft: "8px"
+    paddingLeft: "8px",
+    color: "white"
 }
 
 export const toggleStyle = {
@@ -13,6 +14,7 @@ export const dividerStyle = {
 }
 
 export const sliderStyle = {
+    marginTop: 24,
     marginBottom: 40,
     backgroundColor: lightBlue[300]
 }
@@ -33,10 +35,4 @@ export const switchStyle = {
     },
     colorBar: {},
     colorChecked: {},
-}
-
-export const settingsStyle = {
-    display: "table",
-    width: "100%",
-    marginBottom: 12,
 }

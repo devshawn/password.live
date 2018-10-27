@@ -9,13 +9,13 @@ export class LearnPage extends React.Component {
 
     render() {
         return (
-            <Col xs={12}>
+            <Col xs={12} md={6} pull={6}>
                 <Card
-                // containerStyle={{ padding: 0 }}
+                    style={{ padding: 0 }}
                 >
-                    <CardHeader
+                    <CardHeader style={{ textAlign: "center" }}
                         title="Learn More About Password Security"
-                        subtitle="Password strength is important to maintain a secure identity online"
+                        subheader="Password strength is important to maintain a secure identity online"
                         // titleStyle={{ textAlign: "center", fontSize: "20px", paddingBottom: "6px" }}
                         // subtitleStyle={{ textAlign: "center", fontSize: "16px" }}
                         // textStyle={{ paddingRight: 0 }}

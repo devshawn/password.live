@@ -1,8 +1,8 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import Application from "./application"
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider"
-import getMuiTheme from "material-ui/styles/getMuiTheme"
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import lightBlue from "@material-ui/core/colors/lightBlue";
 
 import { Provider } from "react-redux"
 import { Router } from "react-router-dom"
@@ -17,8 +17,19 @@ const render = Component => {
     ReactDOM.render(
         <Provider store={store}>
             <Router history={history}>
-                <MuiThemeProvider muiTheme={getMuiTheme({ fontFamily: "PT Sans" })}>
-                    <Component history={history}/>
+                <MuiThemeProvider theme={
+                    createMuiTheme({
+                        typography: {
+                            fontFamily: "PT Sans",
+                            useNextVariants: true
+                        },
+                        palette: {
+                            primary: lightBlue,
+                            secondary: lightBlue,
+                        }
+                    })}
+                >
+                    <Component history={history} />
                 </MuiThemeProvider>
             </Router>
         </Provider>,
