@@ -6,7 +6,8 @@ const router = new Router(app)
 
 describe("router", () => {
     it("returns empty routes object", async () => {
-        const routes = router.routes
+        const { routes } = router
+
         expect(routes).toEqual({})
     })
 })
