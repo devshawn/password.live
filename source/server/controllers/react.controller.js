@@ -2,7 +2,7 @@ import {
     Router
 } from "../config/router"
 import path from "path"
-
+import "@babel/polyfill"
 export class ReactController extends Router {
 
     get routes() {
@@ -18,8 +18,4 @@ export class ReactController extends Router {
     static create(server) {
         return new ReactController(server)
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> updated former master with upstream branch v2
