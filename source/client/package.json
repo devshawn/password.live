@@ -12,7 +12,7 @@
     "serve": "webpack-dev-server --hot --history-api-fallback --port 5500",
     "build": "SET NODE_ENV='production API_URL=''/'' webpack'",
     "dist": "npm run clean && npm run build",
-    "test": "test jest"
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

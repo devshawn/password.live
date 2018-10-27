@@ -1,5 +1,10 @@
-import { Logger } from "../utilities/logger"
-import { Router } from "../config/router"
+import "@babel/polyfill";
+import {
+    Logger
+} from "../utilities/logger"
+import {
+    Router
+} from "../config/router"
 
 let counter = 0
 
