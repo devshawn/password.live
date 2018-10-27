@@ -8,14 +8,12 @@
   "private": true,
   "scripts": {
     "clean": "rimraf dist/",
-    "serve-remote": "development webpack-dev-server --hot --history-api-fallback --port 5500",
-    "serve": "webpack-dev-server --hot --history-api-fallback --port 5500",
-    "build": "SET NODE_ENV='production API_URL=''/'' webpack'",
+    "serve": "NODE_ENV=development webpack-dev-server --hot --history-api-fallback --port 5500",
+    "build": "NODE_ENV=production API_URL='/' webpack",
     "dist": "npm run clean && npm run build",
-    "test": "jest"
+    "test": "NODE_ENV=jest"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-decorators": "^7.0.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
     "@babel/polyfill": "^7.0.0",
