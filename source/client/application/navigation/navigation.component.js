@@ -35,7 +35,7 @@ export class NavigationComponent extends React.Component {
                                 Password Generator
                             </Typography>
                         </div>
-                        <div style={{ marginLeft: "auto" }}>
+                        <div style={{ marginLeft: "auto", marginBottom: "inherit" }}>
                             <Tabs
                                 fullWidth
                                 value={value}
@@ -45,9 +45,6 @@ export class NavigationComponent extends React.Component {
                             >
                                 <Tab key={"/"} label={"Home"} value={"/"} style={tabItemStyle} component={Link} to={"/"} onClick={event => event.preventDefault()} />
                                 <Tab key={"/learn"} label={"Learn"} value={"/learn"} style={tabItemStyle} component={Link} to={"/learn"} onClick={event => event.preventDefault()} />
-                                {/* {
-                                    routes.map((route) => <Tab key={route.label} label={route.label} value={route.path} component={Link} to={route.path} style={tabItemStyle} onClick={event => event.preventDefault()} />)
-                                } */}
                             </Tabs>
                         </div>
                     </Toolbar>
