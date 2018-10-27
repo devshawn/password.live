@@ -15,10 +15,10 @@ export class NotificationComponent extends React.Component {
         return (
             <div>
                 <NotificationStack
-                    notifications={ notifications.toArray() }
-                    onDismiss={ notification => this.props.dispatch(removeNotification(notification.key)) }
-                    barStyleFactory={ barStyleFactory }
-                    activeBarStyleFactory={ barStyleFactory }
+                    notifications={notifications}
+                    onDismiss={notification => this.props.dispatch(removeNotification(notification.key))}
+                    barStyleFactory={barStyleFactory}
+                    activeBarStyleFactory={barStyleFactory}
                 />
             </div>
         )
