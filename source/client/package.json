@@ -11,7 +11,7 @@
     "serve": "NODE_ENV=development webpack-dev-server --hot --history-api-fallback --port 5500",
     "build": "NODE_ENV=production API_URL='/' webpack",
     "dist": "npm run clean && npm run build",
-    "test": "NODE_ENV=jest"
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.0.0",
@@ -38,11 +38,6 @@
     "@material-ui/lab": "^3.0.0-alpha.21",
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
-    "@material-ui/core": "^3.3.1",
-    "@material-ui/lab": "^3.0.0-alpha.21",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-latest": "^6.24.1",
     "copy-to-clipboard": "^3.0.8",
     "font-awesome": "^4.7.0",
     "history": "^4.7.2",
@@ -61,6 +56,7 @@
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
+    "react-transition-group": "^2.4.0",
     "uuid": "^3.1.0"
   },
   "resolutions": {
