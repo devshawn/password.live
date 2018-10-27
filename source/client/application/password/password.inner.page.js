@@ -1,5 +1,5 @@
 import React from "react"
-import { Hidden, Visible } from "react-grid-system"
+import { Col, Hidden, Visible } from "react-grid-system"
 import { connect } from "react-redux"
 import { PasswordBoxComponent } from "../password/password.box.component"
 import { PasswordButtonsComponent } from "../password/password.buttons.component"
@@ -8,7 +8,6 @@ import { validatePasswordSettings } from "../password/password.helper"
 import { sendNotification } from "../notification/notification.actions"
 import { withRouter } from "react-router-dom"
 import { SettingsCard } from "../settings/settings.card"
-import { CSSTransition } from "react-transition-group"
 
 @withRouter
 @connect((store) => ({
@@ -42,8 +41,7 @@ export class PasswordInnerPage extends React.Component {
     }
 
     render() {
-        const { settings: { advanced } } = this.props
-
+        const { settings } = this.props
         return (
             <div className={"page"}>
                 <div>
@@ -57,7 +55,6 @@ export class PasswordInnerPage extends React.Component {
                     </div>
                 </CSSTransition>
             </div>
-
         )
     }
 }

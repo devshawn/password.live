@@ -1,4 +1,4 @@
-import "@babel/polyfill"
+import "babel-polyfill"
 import { app, Application } from "./config/application"
 import { Logger } from "./utilities/logger"
 
