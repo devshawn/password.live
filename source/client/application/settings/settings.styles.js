@@ -14,6 +14,7 @@ export const dividerStyle = {
 }
 
 export const sliderStyle = {
+    marginTop: 24,
     marginBottom: 40,
     backgroundColor: lightBlue[300]
 }
