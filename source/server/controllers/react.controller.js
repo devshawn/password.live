@@ -1,6 +1,8 @@
-import { Router } from "../config/router"
+import {
+    Router
+} from "../config/router"
 import path from "path"
-
+import "@babel/polyfill"
 export class ReactController extends Router {
 
     get routes() {

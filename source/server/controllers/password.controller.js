@@ -1,6 +1,10 @@
-import { Router } from "../config/router"
-import { PasswordService } from "../services/password.service"
-
+import {
+    Router
+} from "../config/router"
+import {
+    PasswordService
+} from "../services/password.service"
+import "@babel/polyfill";
 export class PasswordController extends Router {
 
     constructor(server) {
@@ -16,7 +20,9 @@ export class PasswordController extends Router {
 
     generate(request, response) {
         const password = this.passwordService.generate(request.body)
-        response.json({ password })
+        response.json({
+            password
+        })
     }
 
     static create(server) {
