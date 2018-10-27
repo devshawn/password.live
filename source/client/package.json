@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "clean": "rimraf dist/",
-    "serve": "webpack-dev-server --hot --history-api-fallback --port 5500",
+    "serve": "NODE_ENV=development webpack-dev-server --hot --history-api-fallback --port 5500",
     "build": "NODE_ENV=production API_URL='/' webpack",
     "dist": "npm run clean && npm run build",
     "test": "NODE_ENV=jest"

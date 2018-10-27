@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "clean": "rimraf dist/",
-    "serve": "nodemon server.js --exec babel-node",
+    "serve": "NODE_ENV=development nodemon server.js --exec babel-node",
     "build": "babel . --ignore 'node_modules,tests' -d dist",
     "dist": "npm run clean && npm run build",
     "test": "jest"
