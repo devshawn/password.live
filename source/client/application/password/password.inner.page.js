@@ -42,7 +42,12 @@ export class PasswordInnerPage extends React.Component {
     }
 
     render() {
-        const { settings: { advanced } } = this.props
+        const { settings } = this.props
+
+        const mdSize = settings.advanced ? 7 : 8
+        const pushSize = settings.advanced ? 5 : 2
+        const settingAdvanced = settings.advanced
+        const isSettingAdvanced = settings.advanced === true
 
         return (
             <div className={"page"}>
@@ -51,7 +56,7 @@ export class PasswordInnerPage extends React.Component {
                     <PasswordBoxComponent />
                     <Hidden xs sm>{this.renderButtons()}</Hidden>
                 </div>
-                <CSSTransition classNames={"settings"} timeout={1000} in={advanced} unmountOnExit>
+                <CSSTransition classNames={"settings"} timeout={1000} in={settingAdvanced} unmountOnExit>
                     <div className={"settings"}>
                         <SettingsCard />
                     </div>

@@ -24,6 +24,7 @@ export class NavigationComponent extends React.Component {
 
     render() {
         const { value } = this.state
+        console.log(this.state);
 
         return (
             <AppBar position="static" style={appBarStyle}>
@@ -42,8 +43,8 @@ export class NavigationComponent extends React.Component {
                             style={tabItemContainerStyles}
                             indicatorColor="primary"
                         >
-                            <Tab key={"/"} label={"Home"} value={"/"} style={tabItemStyle} component={Link} to={"/"} onClick={event => event.preventDefault()} />
-                            <Tab key={"/learn"} label={"Learn"} value={"/learn"} style={tabItemStyle} component={Link} to={"/learn"} onClick={event => event.preventDefault()} />
+                            <Tab key={"/"} label={"Home"} value={"/"} style={tabItemStyle} component={Link} to={"/"} onClick={this.handleNavigation} />
+                            <Tab key={"/learn"} label={"Learn"} value={"/learn"} style={tabItemStyle} component={Link} to={"/learn"} onClick={this.handleNavigation} />
                         </Tabs>
                     </div>
                 </Toolbar>

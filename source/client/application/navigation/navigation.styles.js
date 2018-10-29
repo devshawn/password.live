@@ -2,9 +2,9 @@ import { lightBlue } from "@material-ui/core/colors"
 
 export const tabItemContainerStyle = (items) => {
     return {
-        background: lightBlue[900],
-        margin: 0,
-        height: "64px",
+        // background: lightBlue[900],
+        // margin: 0,
+        // height: "64px",
         width: `${items * 150}px`,
         color: "white"
     }
@@ -20,7 +20,8 @@ export const appBarStyle = {
 
 export const appBarTitleStyle = {
     color: "white",
-    textOverflow: "hidden"
+    textOverflow: "hidden",
+    marginBottom: "auto"
 }
 
 export const inkBarStyle = {
