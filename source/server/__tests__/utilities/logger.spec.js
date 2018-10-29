@@ -2,14 +2,14 @@ import { Logger } from "../../utilities/logger"
 
 describe("logger", () => {
     it("has an info method", () => {
-        Logger.info("Message would go here...")
+        expect(Logger.info).toBeTruthy()
     })
 
     it("has a warn method", () => {
-        Logger.warn("Message would go here...")
+        expect(Logger.warn).toBeTruthy()
     })
 
     it("has an error method", () => {
-        Logger.error("Message would go here...")
+        expect(Logger.error).toBeTruthy()
     })
 })
