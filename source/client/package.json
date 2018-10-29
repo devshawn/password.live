@@ -8,13 +8,12 @@
   "private": true,
   "scripts": {
     "clean": "rimraf dist/",
-    "serve": "NODE_ENV=development webpack-dev-server --hot --history-api-fallback --port 5500",
+    "serve": "webpack-dev-server --hot --history-api-fallback --port 5500",
     "build": "NODE_ENV=production API_URL='/' webpack",
     "dist": "npm run clean && npm run build",
-    "test": "NODE_ENV=test jest"
+    "test": "jest"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-decorators": "^7.0.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
     "@babel/polyfill": "^7.0.0",
@@ -37,6 +36,8 @@
   "dependencies": {
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
+    "@material-ui/core": "^3.3.1",
+    "@material-ui/lab": "^3.0.0-alpha.21",
     "copy-to-clipboard": "^3.0.8",
     "font-awesome": "^4.7.0",
     "history": "^4.7.2",
