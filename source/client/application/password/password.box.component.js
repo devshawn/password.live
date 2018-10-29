@@ -1,6 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
-import { Card, CardText } from "material-ui"
+import Card from "@material-ui/core/Card"
+import CardContent from "@material-ui/core/CardContent"
 import { cardContainerStyle, cardTextStyle, containerDivStyle } from "../styles"
 
 @connect((store) => ({
@@ -10,14 +11,17 @@ export class PasswordBoxComponent extends React.Component {
 
     render() {
         const { password } = this.props
-        cardTextStyle.fontSize = `${48 - Math.trunc(Math.log(Math.round(password.length / 10)) * 10)}px`
+
+        let _cardTextStyle = Object.assign({}, cardTextStyle)
+
+        _cardTextStyle.fontSize = `${48 - Math.trunc(Math.log(Math.round(password.length / 10)) * 10)}px`
 
         return (
-            <div style={ containerDivStyle }>
-                <Card containerStyle={ cardContainerStyle }>
-                    <CardText style={ cardTextStyle }>
-                        { password }
-                    </CardText>
+            <div style={containerDivStyle}>
+                <Card style={cardContainerStyle}>
+                    <CardContent style={_cardTextStyle}>
+                        {password}
+                    </CardContent>
                 </Card>
             </div>
         )

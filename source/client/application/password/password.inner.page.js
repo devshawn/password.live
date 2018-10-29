@@ -1,5 +1,5 @@
 import React from "react"
-import { Hidden, Visible } from "react-grid-system"
+import { Hidden, Visible, Col } from "react-grid-system"
 import { connect } from "react-redux"
 import { PasswordBoxComponent } from "../password/password.box.component"
 import { PasswordButtonsComponent } from "../password/password.buttons.component"
@@ -38,22 +38,22 @@ export class PasswordInnerPage extends React.Component {
     }
 
     renderButtons() {
-        return <PasswordButtonsComponent generatePassword={ this.generatePassword }/>
+        return <PasswordButtonsComponent generatePassword={this.generatePassword} />
     }
 
     render() {
         const { settings: { advanced } } = this.props
 
         return (
-            <div className={ "page" }>
+            <div className={"page"}>
                 <div>
-                    <Visible xs sm>{ this.renderButtons() }</Visible>
-                    <PasswordBoxComponent/>
-                    <Hidden xs sm>{ this.renderButtons() }</Hidden>
+                    <Visible xs sm>{this.renderButtons()}</Visible>
+                    <PasswordBoxComponent />
+                    <Hidden xs sm>{this.renderButtons()}</Hidden>
                 </div>
-                <CSSTransition classNames={ "settings" } timeout={ 1000 } in={ advanced } unmountOnExit>
-                    <div className={ "settings" }>
-                        <SettingsCard/>
+                <CSSTransition classNames={"settings"} timeout={1000} in={advanced} unmountOnExit>
+                    <div className={"settings"}>
+                        <SettingsCard />
                     </div>
                 </CSSTransition>
             </div>
