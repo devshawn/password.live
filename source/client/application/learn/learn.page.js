@@ -1,28 +1,34 @@
 import React from "react"
 import { Col } from "react-grid-system"
-import { Card, CardHeader, CardText } from "material-ui/Card"
-import Divider from "material-ui/Divider"
+import Card from "@material-ui/core/Card"
+import CardHeader from "@material-ui/core/CardHeader"
+import CardContent from "@material-ui/core/CardContent"
+import Divider from "@material-ui/core/Divider"
+import Typography from "@material-ui/core/Typography"
 
 export class LearnPage extends React.Component {
 
     render() {
+
+        const titleText = "Learn More About Password Security"
+        const subtitleText = "Password strength is important to maintain a secure identity online"
+        const cardTitle = <Typography variant="title" style={{ textAlign: "center", fontSize: "20px", paddingBottom: "6px" }}>{titleText}</Typography>
+        const cardSubtitle = <Typography variant="subheading" style={{ textAlign: "center", fontSize: "16px" }}>{subtitleText}</Typography>
+        const cardContent = <Typography variant="body1" style={{ paddingRight: 0 }}>Coming soon!</Typography>
         return (
-            <Col xs={ 12 }>
-                <Card containerStyle={ { padding: 0 } }>
+            <Col xs={12}>
+                <Card style={{ padding: 0 }}>
                     <CardHeader
-                        title="Learn More About Password Security"
-                        subtitle="Password strength is important to maintain a secure identity online"
-                        titleStyle={ { textAlign: "center", fontSize: "20px", paddingBottom: "6px" } }
-                        subtitleStyle={ { textAlign: "center", fontSize: "16px" } }
-                        textStyle={ { paddingRight: 0 } }
-                        style={ { paddingBottom: 0 } }
-
+                        title={cardTitle}
+                        subheader={cardSubtitle}
+                        // textStyle={{ paddingRight: 0 }}
+                        style={{ paddingBottom: 0 }}
                     />
-                    <CardText>
-                        <Divider style={ { marginBottom: "10px" } }/>
+                    <CardContent>
+                        <Divider style={{ marginBottom: "10px" }} />
 
-                        Coming soon!
-                    </CardText>
+                        {cardContent}
+                    </CardContent>
                 </Card>
             </Col>
         )
