@@ -2,9 +2,6 @@ sudo: required
 services:
   - docker
 language: node_js
-before_cache:
-  - rm -f source/server/node_modules
-  - rm -f source/client/node_modules
 cache:
   directories:
     - ~/.npm
@@ -13,8 +10,8 @@ cache:
 node_js:
   - "8"
 before_install:
-  - rm -f source/server/node_modules
-  - rm -f source/client/node_modules
+  - rm -rf source/server/node_modules
+  - rm -rf source/client/node_modules
 install:
   - npm install -g lerna
   - npm install
