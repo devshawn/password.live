@@ -41,7 +41,8 @@ export class SettingsCardItems extends React.Component {
     }
 
     changeToggle(event, value) {
-        const property = event.target.dataset.property
+        const property = event.target.id;
+        console.log(property);
         this.props.dispatch(updatePasswordSettings({ [property]: value }))
     }
 

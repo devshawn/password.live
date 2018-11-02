@@ -13,12 +13,14 @@ const tabItemContainerStyles = tabItemContainerStyle(2)
 export class NavigationComponent extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { value: window.location.pathname }
+        this.state = { value: 0 }
         this.handleNavigation = this.handleNavigation.bind(this)
     }
 
-    handleNavigation(value) {
-        this.props.history.push(value)
+    handleNavigation(event, value) {
+        event.preventDefault();
+        let historyValue = location.pathname;
+        this.props.history.push(historyValue)
         this.setState({ value: value })
     }
 
@@ -34,7 +36,7 @@ export class NavigationComponent extends React.Component {
                         Password Generator
                 </Typography>
                 </div>
-                <div style={{ marginLeft: "auto", marginBottom: "inherit" }}>
+                <div style={{ marginLeft: "auto" }}>
                     <Tabs
                         fullWidth
                         value={value}
@@ -42,8 +44,8 @@ export class NavigationComponent extends React.Component {
                         style={tabItemContainerStyles}
                         indicatorColor="primary"
                     >
-                        <Tab key={"/"} label={"Home"} value={"/"} style={tabItemStyle} component={Link} to={"/"} />
-                        <Tab key={"/learn"} label={"Learn"} value={"/learn"} style={tabItemStyle} component={Link} to={"/learn"} />
+                        <Tab key={"/"} label={"Home"} style={tabItemStyle} value={0} component={Link} to={"/"} />
+                        <Tab key={"/learn"} label={"Learn"} style={tabItemStyle} value={1} component={Link} to={"/learn"} />
                     </Tabs>
                 </div>
             </AppBar>
