@@ -21,7 +21,7 @@ export const appBarStyle = {
 export const appBarTitleStyle = {
     color: "white",
     textOverflow: "hidden",
-    marginBottom: "auto"
+    marginTop: 10,
 }
 
 export const inkBarStyle = {
@@ -30,5 +30,13 @@ export const inkBarStyle = {
 
 export const iconStyle = {
     margin: "12px 15px 0 15px",
-    color: "white"
+    color: "white",
+}
+
+export const appToolBarStyle = {
+    display: "flex",
+    justifyContent: "space-around",
+    flexFlow: "row wrap",
+    alignItems: "stretch",
+    background: lightBlue[900],
 }

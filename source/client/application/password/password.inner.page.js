@@ -44,7 +44,7 @@ export class PasswordInnerPage extends React.Component {
     render() {
         const { settings } = this.props
 
-        const mdSize = settings.advanced ? 7 : 8
+        const mdSize = settings.advanced ? 7 : 9
         const pushSize = settings.advanced ? 5 : 2
         const settingAdvanced = settings.advanced
         const isSettingAdvanced = settings.advanced === true

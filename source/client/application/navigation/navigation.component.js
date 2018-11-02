@@ -6,7 +6,7 @@ import Tab from "@material-ui/core/Tab"
 import Tabs from "@material-ui/core/Tabs"
 import Toolbar from "@material-ui/core/Toolbar"
 import Typography from "@material-ui/core/Typography"
-import { appBarStyle, appBarTitleStyle, iconStyle, inkBarStyle, tabItemContainerStyle, tabItemStyle } from "./navigation.styles"
+import { appBarStyle, appBarTitleStyle, iconStyle, inkBarStyle, tabItemContainerStyle, tabItemStyle, appToolBarStyle } from "./navigation.styles"
 
 const tabItemContainerStyles = tabItemContainerStyle(2)
 
@@ -27,27 +27,25 @@ export class NavigationComponent extends React.Component {
         console.log(this.state);
 
         return (
-            <AppBar position="static" style={appBarStyle}>
-                <Toolbar>
-                    <div style={{ display: "flex" }}>
-                        <Icon style={iconStyle} className="fa fa-user-secret" aria-hidden="true"></Icon>
-                        <Typography variant="h6" style={appBarTitleStyle} color="inherit">
-                            Password Generator
-                            </Typography>
-                    </div>
-                    <div style={{ marginLeft: "auto", marginBottom: "inherit" }}>
-                        <Tabs
-                            fullWidth
-                            value={value}
-                            onChange={this.handleNavigation}
-                            style={tabItemContainerStyles}
-                            indicatorColor="primary"
-                        >
-                            <Tab key={"/"} label={"Home"} value={"/"} style={tabItemStyle} component={Link} to={"/"} onClick={this.handleNavigation} />
-                            <Tab key={"/learn"} label={"Learn"} value={"/learn"} style={tabItemStyle} component={Link} to={"/learn"} onClick={this.handleNavigation} />
-                        </Tabs>
-                    </div>
-                </Toolbar>
+            <AppBar position="static" style={appToolBarStyle}>
+                <div style={{ display: "flex", flexGrow: 2 }}>
+                    <Icon style={iconStyle} className="fa fa-user-secret" aria-hidden="true"></Icon>
+                    <Typography variant="h6" style={appBarTitleStyle} color="inherit">
+                        Password Generator
+                </Typography>
+                </div>
+                <div style={{ marginLeft: "auto", marginBottom: "inherit" }}>
+                    <Tabs
+                        fullWidth
+                        value={value}
+                        onChange={this.handleNavigation}
+                        style={tabItemContainerStyles}
+                        indicatorColor="primary"
+                    >
+                        <Tab key={"/"} label={"Home"} value={"/"} style={tabItemStyle} component={Link} to={"/"} />
+                        <Tab key={"/learn"} label={"Learn"} value={"/learn"} style={tabItemStyle} component={Link} to={"/learn"} />
+                    </Tabs>
+                </div>
             </AppBar>
         )
     }
