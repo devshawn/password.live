@@ -4,7 +4,6 @@ import { Card, CardHeader, CardText } from "material-ui/Card"
 import Divider from "material-ui/Divider"
 
 export class LearnPage extends React.Component {
-
     render() {
         return (
             <Col xs={ 12 }>
@@ -16,11 +15,9 @@ export class LearnPage extends React.Component {
                         subtitleStyle={ { textAlign: "center", fontSize: "16px" } }
                         textStyle={ { paddingRight: 0 } }
                         style={ { paddingBottom: 0 } }
-
                     />
                     <CardText>
                         <Divider style={ { marginBottom: "10px" } }/>
-
                         Coming soon!
                     </CardText>
                 </Card>
