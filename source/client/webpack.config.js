@@ -38,7 +38,10 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             title: "Password Generator",
-            inject: "body"
+            inject: "body",
+            meta: {
+              viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'
+            }
         }),
         new ReactRootPlugin(),
         new DefinePlugin({
