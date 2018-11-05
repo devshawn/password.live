@@ -37,6 +37,7 @@
   "dependencies": {
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
+    "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.0.8",
     "font-awesome": "^4.7.0",
     "history": "^4.7.2",
@@ -53,9 +54,9 @@
     "react-notification": "^6.8.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
+    "react-transition-group": "^2.4.0",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
-    "react-transition-group": "^2.4.0",
     "uuid": "^3.1.0"
   },
   "resolutions": {

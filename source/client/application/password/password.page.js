@@ -14,7 +14,6 @@ export class PasswordPage extends React.Component {
     constructor(props) {
         super(props)
         const cookieValue = Cookies.getJSON("settings")
-        console.log(cookieValue)
         if (cookieValue) {
             props.dispatch(updatePasswordSettings(cookieValue))
         }

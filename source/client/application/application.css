@@ -18,15 +18,15 @@ body {
     overflow-y: auto;
     flex-grow: 4;
     display: flex;
-    align-content: center;
+}
+
+.center-vertically {
+    margin: auto;
 }
 
 .page {
-    margin: 0 auto;
     width: 80vw;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-around;
+    margin: 0 auto;
 }
 
 .settings-enter {
