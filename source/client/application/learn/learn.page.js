@@ -8,9 +8,7 @@ import Typography from "@material-ui/core/Typography"
 import { learnCardStyle } from './learn.styles';
 
 export class LearnPage extends React.Component {
-
     render() {
-
         const titleText = "Learn More About Password Security"
         const subtitleText = "Password strength is important to maintain a secure identity online"
         const cardTitle = <Typography variant="h1" style={{ textAlign: "center", fontSize: "20px", paddingBottom: "6px" }}>{titleText}</Typography>

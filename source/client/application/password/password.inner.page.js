@@ -1,5 +1,5 @@
 import React from "react"
-import { Hidden, Visible, Col } from "react-grid-system"
+import { Col, Hidden, Visible } from "react-grid-system"
 import { connect } from "react-redux"
 import { PasswordBoxComponent } from "../password/password.box.component"
 import { PasswordButtonsComponent } from "../password/password.buttons.component"
@@ -16,11 +16,15 @@ import { CSSTransition } from "react-transition-group"
     settings: store.settingsReducer.settings
 }))
 export class PasswordInnerPage extends React.Component {
-
     constructor(props) {
         super(props)
         this.generatePassword = this.generatePassword.bind(this)
         this.renderButtons = this.renderButtons.bind(this)
+        this.toggleCSSClass = this.toggleCSSClass.bind(this)
+
+        this.state = {
+            settingsOpen: props.settings.advanced
+        }
     }
 
     componentDidMount() {
@@ -41,28 +45,28 @@ export class PasswordInnerPage extends React.Component {
         return <PasswordButtonsComponent generatePassword={this.generatePassword} />
     }
 
-    render() {
-        const { settings } = this.props
+    toggleCSSClass(settingsOpen) {
+        this.setState(() => ({ settingsOpen }))
+    }
 
-        const mdSize = settings.advanced ? 7 : 9
-        const pushSize = settings.advanced ? 5 : 2
-        const settingAdvanced = settings.advanced
-        const isSettingAdvanced = settings.advanced === true
+    render() {
+        const { props: { settings: { advanced } }, state: { settingsOpen } } = this
 
         return (
-            <div className={"page"}>
-                <div>
-                    <Visible xs sm>{this.renderButtons()}</Visible>
-                    <PasswordBoxComponent />
-                    <Hidden xs sm>{this.renderButtons()}</Hidden>
-                </div>
-                <CSSTransition classNames={"settings"} timeout={1000} in={settingAdvanced} unmountOnExit>
-                    <div className={"settings"}>
-                        <SettingsCard />
+            <div className={ "page"}>
+                <Col xs={ 12 } md={ settingsOpen ? 7 : 8 } push={ { md: settingsOpen ? 5 : 2 } }>
+                    <div>
+                        <Visible xs sm>{ this.renderButtons() }</Visible>
+                        <PasswordBoxComponent/>
+                        <Hidden xs sm>{ this.renderButtons() }</Hidden>
                     </div>
+                </Col>
+                <CSSTransition classNames={ "settings" } timeout={ 1000 } in={ advanced } unmountOnExit onExited={ () => this.toggleCSSClass(false) } onEnter={ () => this.toggleCSSClass(true) }>
+                    <Col xs={ 12 } md={ 5 } pull={ { md: 7 } } className={ "settings" }>
+                        <SettingsCard/>
+                    </Col>
                 </CSSTransition>
             </div>
-
         )
     }
 }
