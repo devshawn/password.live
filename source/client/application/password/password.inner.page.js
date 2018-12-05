@@ -42,7 +42,7 @@ export class PasswordInnerPage extends React.Component {
     }
 
     renderButtons() {
-        return <PasswordButtonsComponent generatePassword={ this.generatePassword }/>
+        return <PasswordButtonsComponent generatePassword={this.generatePassword} />
     }
 
     toggleCSSClass(settingsOpen) {

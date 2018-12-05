@@ -1,12 +1,13 @@
 import React from "react"
 import copy from "copy-to-clipboard"
 import { connect } from "react-redux"
-import { Divider, RaisedButton, Slider, Toggle } from "material-ui"
-import { red600 } from "material-ui/styles/colors"
+import { Divider, Button, Switch, FormControlLabel, Typography } from "@material-ui/core"
+import { Slider } from "@material-ui/lab"
+import FormControl from '@material-ui/core/FormControl';
 import { dividerStyle, sliderStyle, toggleStyle } from "./settings.styles"
 import { updatePasswordSettings } from "../settings/settings.actions"
 import { Col } from "react-grid-system"
-import { innerButtonLabelStyle, innerButtonStyle } from "../styles"
+import { innerButtonLabelStyle, innerButtonStyle, resetButtonStyle } from "../styles"
 import { defaultPasswordSettings } from "../../../server/constants/password.constants"
 import { sendNotification } from "../notification/notification.actions"
 import { generateSettingsQueryString } from "../settings/settings.helper"
@@ -40,7 +41,8 @@ export class SettingsCardItems extends React.Component {
     }
 
     changeToggle(event, value) {
-        const property = event.target.dataset.property
+        const property = event.target.id;
+        console.log(property);
         this.props.dispatch(updatePasswordSettings({ [property]: value }))
     }
 
@@ -68,28 +70,54 @@ export class SettingsCardItems extends React.Component {
         const { settings } = this.props
         return (
             <div>
-                Length: { settings.length }
-                <Slider value={ settings.length } onChange={ this.changeLength } min={ 5 } max={ 100 } step={ 1 } sliderStyle={ sliderStyle } aria-label={ "Password Length Slider: " + settings.length + ". Increase or decrease length using arrow keys." }/>
+                <Typography id="label" >
+                    Length: {settings.length}
+                </Typography>
+                <Slider value={settings.length} onChange={this.changeLength} min={5} max={100} step={1} style={sliderStyle} aria-label={"Password Length Slider: " + settings.length + ". Increase or decrease length using arrow keys."} />
                 {
                     this.generateToggleList().map((toggle) => {
                         return (
-                            <div key={ toggle.property }>
-                                <Divider style={ dividerStyle }/>
-                                <Toggle data-property={ toggle.property } label={ toggle.label } toggled={ toggle.toggled } style={ toggleStyle } onToggle={ toggle.onToggle } aria-label={ toggle.label }/>
-                            </div>
+                            <FormControl fullWidth key={toggle.property}>
+                                <Divider style={dividerStyle} />
+                                <FormControlLabel style={{ marginLeft: "inherit" }}
+                                    control={
+                                        <div style={{ marginLeft: "auto", marginRight: 0, marginTop: 0 }}>
+                                            <Switch id={toggle.property} defaultChecked={toggle.toggled} value={toggle.toggled} onChange={toggle.onToggle} aria-label={toggle.label} />
+                                        </div>
+                                    }
+                                    label={toggle.label}
+                                    labelPlacement="start"
+                                >
+                                </FormControlLabel>
+                            </FormControl>
+
                         )
                     })
                 }
-                <Divider style={ dividerStyle }/>
-                <div>
-                    <Col xs={ 12 } xl={ 5 }>
-                        <RaisedButton onClick={ this.resetSettings } backgroundColor={ red600 } labelStyle={ innerButtonLabelStyle } style={ innerButtonStyle } label="Reset"/>
+                <Divider style={dividerStyle} />
+                <div >
+                    <Col xs={12} xl={5}>
+                        <Button
+                            onClick={this.resetSettings}
+                            variant="contained"
+                            style={resetButtonStyle}
+                        >
+                            <label style={innerButtonLabelStyle}>
+                                Reset
+                        </label>
+                        </Button>
                     </Col>
-                    <Col xs={ 12 } xl={ 7 }>
-                        <RaisedButton onClick={ this.copyShareURL } backgroundColor={ "#F18A00" } labelStyle={ innerButtonLabelStyle } style={ innerButtonStyle } label="Copy Settings URL"/>
+                    <Col xs={12} xl={7}>
+                        <Button
+                            onClick={this.copyShareURL}
+                            variant="contained"
+                            style={innerButtonStyle}
+                        >
+                            <label style={innerButtonLabelStyle}>Copy Settings URL</label>
+                        </Button>
                     </Col>
                 </div>
-                <div style={ { clear: "both" } }/>
+                <div style={{ clear: "both" }} />
             </div>
         )
     }
