@@ -1,17 +1,21 @@
-FROM node:8
-MAINTAINER Shawn Seymour <shawn@devshawn.com>
+FROM node:8-alpine as builder
 
-RUN useradd --user-group --create-home --shell /bin/false app
-ENV HOME=/home/app
-ENV NODE_ENV=production
-ENV PORT=8080
-RUN chown -R app:app $HOME
+COPY package.json package-lock.json ./
 
-USER app
-WORKDIR $HOME/password
+RUN npm install && mkdir /app && mv ./node_modules ./app
 
-COPY dist/ dist/
-COPY node_modules/ node_modules/
+WORKDIR /app
 
-EXPOSE 8080
-CMD ["node", "dist/server.js"]
+COPY . .
+
+RUN npm run build
+
+FROM nginx:alpine
+
+RUN rm -rf /usr/share/nginx/html/*
+
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+EXPOSE 80
+
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
