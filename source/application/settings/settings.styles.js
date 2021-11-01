@@ -1,4 +1,4 @@
-import lightBlue from "@material-ui/core/colors/lightBlue"
+import lightBlue from "@mui/material/colors/lightBlue"
 
 export const shieldIconStyle = {
     paddingLeft: "8px",

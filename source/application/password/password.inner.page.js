@@ -61,7 +61,7 @@ export class PasswordInnerPage extends React.Component {
                         <Hidden xs sm>{ this.renderButtons() }</Hidden>
                     </div>
                 </Col>
-                <CSSTransition classNames={ "settings" } timeout={ 1000 } in={ advanced } unmountOnExit onExited={ () => this.toggleCSSClass(false) } onEnter={ () => this.toggleCSSClass(true) }>
+                <CSSTransition classNames="settings" timeout={ 1000 } in={ advanced } unmountOnExit onExited={ () => this.toggleCSSClass(false) } onEnter={ () => this.toggleCSSClass(true) }>
                     <Col xs={ 12 } md={ 5 } pull={ { md: 7 } } className={ "settings" }>
                         <SettingsCard/>
                     </Col>

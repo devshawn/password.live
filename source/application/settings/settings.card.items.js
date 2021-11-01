@@ -1,9 +1,9 @@
 import React from "react"
 import copy from "copy-to-clipboard"
 import { connect } from "react-redux"
-import { Divider, Button, Switch, FormControlLabel, Typography } from "@material-ui/core"
-import { Slider } from "@material-ui/lab"
-import FormControl from '@material-ui/core/FormControl';
+import { Divider, Button, Switch, FormControlLabel, Typography } from "@mui/material"
+import { Slider } from "@mui/material"
+import FormControl from '@mui/material/FormControl';
 import { dividerStyle, sliderStyle, toggleStyle } from "./settings.styles"
 import { updatePasswordSettings } from "./settings.actions"
 import { Col } from "react-grid-system"
@@ -73,7 +73,7 @@ export class SettingsCardItems extends React.Component {
                 <Typography id="label" >
                     Length: {settings.length}
                 </Typography>
-                <Slider value={settings.length} onChange={this.changeLength} min={5} max={100} step={1} style={sliderStyle} aria-label={"Password Length Slider: " + settings.length + ". Increase or decrease length using arrow keys."} />
+                <Slider value={settings.length} onChange={this.changeLength} min={5} max={100} step={1} aria-label={"Password Length Slider: " + settings.length + ". Increase or decrease length using arrow keys."} />
                 {
                     this.generateToggleList().map((toggle) => {
                         return (

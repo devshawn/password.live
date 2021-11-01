@@ -1,7 +1,7 @@
 import React from "react"
-import AppBar from "@material-ui/core/AppBar"
-import Icon from "@material-ui/core/Icon"
-import Typography from "@material-ui/core/Typography"
+import AppBar from "@mui/material/AppBar"
+import Icon from "@mui/material/Icon"
+import Typography from "@mui/material/Typography"
 import { appBarTitleStyle, appToolBarStyle, iconStyle } from "./navigation.styles"
 
 export class NavigationComponent extends React.Component {

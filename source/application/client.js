@@ -1,19 +1,19 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import Application from "./application"
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import lightBlue from "@material-ui/core/colors/lightBlue";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import lightBlue from "@mui/material/colors/lightBlue";
 
 import { Provider } from "react-redux"
 import { Router } from "react-router-dom"
 
 import configureStore from "./store"
-import createHistory from "history/createBrowserHistory"
+import { createBrowserHistory } from 'history';
 
 const store = configureStore()
-export const history = createHistory()
+export const history = createBrowserHistory()
 
-const appTheme = createMuiTheme({
+const appTheme = createTheme({
     typography: {
         fontFamily: "PT Sans",
         useNextVariants: true
@@ -28,9 +28,9 @@ const render = Component => {
     ReactDOM.render(
         <Provider store={store}>
             <Router history={history}>
-                <MuiThemeProvider theme={appTheme}>
+                <ThemeProvider theme={appTheme}>
                     <Component history={history} />
-                </MuiThemeProvider>
+                </ThemeProvider>
             </Router>
         </Provider>,
         document.getElementById("root")

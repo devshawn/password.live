@@ -1,6 +1,6 @@
 import React from "react"
-import { Avatar, Card, CardHeader, CardContent, Icon } from "@material-ui/core"
-import { lightBlue } from "@material-ui/core/colors"
+import { Avatar, Card, CardHeader, CardContent, Icon } from "@mui/material"
+import { lightBlue } from "@mui/material/colors"
 import { shieldIconStyle } from "./settings.styles"
 import { SettingsCardItems } from "./settings.card.items"
 

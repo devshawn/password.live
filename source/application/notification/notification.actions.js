@@ -1,10 +1,10 @@
-import uuid from "uuid/v4"
+import { v4 as uuidv4 } from 'uuid';
 import { DISMISS_NOTIFICATION, SEND_NOTIFICATION } from "./notification.types"
 import { activeBarStyle, barStyle } from "./notification.styles"
 
 export const sendNotification = function (message) {
     return (dispatch) => {
-        const key = uuid()
+        const key = uuidv4()
         const notification = {
             message,
             key,

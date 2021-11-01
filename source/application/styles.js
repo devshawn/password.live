@@ -1,4 +1,4 @@
-import { red, lightBlue } from "@material-ui/core/colors"
+import { red, lightBlue } from "@mui/material/colors"
 
 export const cardTextStyle = {
     padding: "40px",

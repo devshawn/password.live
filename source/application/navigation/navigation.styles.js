@@ -1,4 +1,4 @@
-import { lightBlue } from "@material-ui/core/colors"
+import { lightBlue } from "@mui/material/colors"
 
 export const appBarTitleStyle = {
     color: "white",

@@ -27,7 +27,7 @@ module.exports = {
         "@babel/preset-react"
       ],
       "plugins": [
-        "react-hot-loader/babel",
+        "react-refresh/babel",
         "react-html-attrs",
         [
           "@babel/plugin-proposal-decorators",
