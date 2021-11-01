@@ -4,10 +4,11 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 const ReactRootPlugin = require("html-webpack-react-root-plugin")
 const DefinePlugin = webpack.DefinePlugin
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-const isDevelopment = process.env.NODE_ENV !== 'production' ? 'development' : 'production';
+const isDevelopment = process.env.NODE_ENV !== 'production';
+const buildMode = isDevelopment ? 'development' : 'production';
 
 module.exports = {
-    mode: isDevelopment,
+    mode: buildMode,
     devtool: "source-map",
     entry: {
         "app": [
@@ -25,23 +26,33 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: "babel-loader",
+                // loader: "babel-loader",
                 include: path.resolve(__dirname, "source/application"),
-                // use: [
-                //     {
-                //         loader: require.resolve('babel-loader'),
-                //         options: {
-                //             plugins: [isDevelopment && require.resolve('react-refresh/babel')].filter(Boolean),
-                //         },
-                //     },
-                // ],
+                use: [
+                    {
+                        loader: require.resolve('babel-loader'),
+                        options: {
+                            plugins: [isDevelopment && require.resolve('react-refresh/babel')].filter(Boolean),
+                        },
+                    },
+                ],
             },
             {
                 test: /\.css$/,
-                use: ["style-loader", "css-loader"],
-                options: {
-                    import: true,
-                },
+                use: [
+                    {
+                        loader: "style-loader",
+                        options: {
+                            import: true,
+                        },
+                    },
+                    {
+                        loader: "css-loader",
+                        options: {
+                            import: true,
+                        },
+                    }
+                ],
             },
             {
                 test: /\.(jpg|png|svg|eot|otf|ttf|woff(2)?)(\?[^]*)?$/,
@@ -61,13 +72,12 @@ module.exports = {
                 </html>
             `
         }),
-        // new ReactRootPlugin(),
         new DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(isDevelopment),
+            'process.env.NODE_ENV': JSON.stringify(buildMode),
             'process.env.API_URL': JSON.stringify(process.env.API_URL)
         }),
-        new ReactRefreshWebpackPlugin()
-    ],
+        isDevelopment && new ReactRefreshWebpackPlugin()
+    ].filter(Boolean),
     resolve: {
         fallback: { crypto: false },
     }
